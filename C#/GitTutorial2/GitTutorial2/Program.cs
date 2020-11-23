@@ -11,11 +11,18 @@ namespace GitTutorial2
         static void Main(string[] args)
         {
             WriteHello();
+            Adding(1, 3);
         }
 
         static void WriteHello()
         {
             Console.WriteLine("Hello");
+        }
+
+        static void Adding(int firstInt, int secondInt)
+        {
+            int equals = firstInt + secondInt;
+            Console.WriteLine(equals);
         }
     }
 }
