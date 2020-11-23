@@ -10,6 +10,12 @@ namespace GitTutorial2
     {
         static void Main(string[] args)
         {
+            WriteHello();
+        }
+
+        static void WriteHello()
+        {
+            Console.WriteLine("Hello");
         }
     }
 }
