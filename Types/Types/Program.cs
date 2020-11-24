@@ -78,6 +78,7 @@ namespace Types
                 Console.WriteLine("Int = " + intTypeParsed);
                 Console.WriteLine("String = " + stringType);
                 Console.WriteLine("Float = " + floatTypeParsed);
+
             }
         }   
     }
