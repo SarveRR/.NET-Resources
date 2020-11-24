@@ -15,7 +15,7 @@ namespace GitPractice
 
         static void WriteHello()
         {
-            Console.WriteLine("Hi");
+            Console.WriteLine("HelloWorld");
         }
     }
 }
