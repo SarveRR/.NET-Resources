@@ -44,6 +44,25 @@ namespace Types
             double diagonal = Math.Sqrt(parsedHeight + parsedWidth);
 
             Console.WriteLine("diagonal = " + diagonal);
+
+            //4
+            Console.WriteLine("Int: ");
+            string intType = Console.ReadLine();
+            Console.WriteLine("String: ");
+            string stringType = Console.ReadLine();
+            Console.WriteLine("Float: ");
+            string floatType = Console.ReadLine();
+
+            int intTypeParsed;
+            float floatTypeParsed;
+
+            Int32.TryParse(intType, out intTypeParsed);
+            float.TryParse(floatType, out floatTypeParsed);
+
+            Console.WriteLine("Int = " + intTypeParsed);
+            Console.WriteLine("String = " + stringType);
+            Console.WriteLine("Float = " + floatTypeParsed);
+
         }
 
         enum Sex
