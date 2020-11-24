@@ -10,6 +10,12 @@ namespace GitPractice
     {
         static void Main(string[] args)
         {
+            WriteHello();
+        }
+
+        static void WriteHello()
+        {
+            Console.WriteLine("HelloWorld");
         }
     }
 }
