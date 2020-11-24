@@ -18,6 +18,12 @@ namespace Types
             Console.WriteLine(Sex.m);
             Console.WriteLine(Pesel);
             Console.WriteLine(Number);
+
+            char first = 'a';
+            char second = 'b';
+            char third = 'c';
+
+            Console.WriteLine($"{ third }{ second }{ first }");
         }
 
         enum Sex
