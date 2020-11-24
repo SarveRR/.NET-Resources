@@ -63,6 +63,39 @@ namespace Types
             Console.WriteLine("String = " + stringType);
             Console.WriteLine("Float = " + floatTypeParsed);
 
+            //5
+            Person person = new Person();
+
+            Console.WriteLine("Name: ");
+            person.Name = Console.ReadLine();
+            Console.WriteLine("Surname: ");
+            person.Surname = Console.ReadLine();
+            Console.WriteLine("Age: ");
+            person.Age = Console.ReadLine();
+            Console.WriteLine("Height: ");
+            person.Height = Console.ReadLine();
+            Console.WriteLine("PhoneNumber: ");
+            person.PhoneNumber = Console.ReadLine();
+            Console.WriteLine("Weight: ");
+            person.Weight = Console.ReadLine();
+            Console.WriteLine("Email: ");
+            person.Email = Console.ReadLine();
+
+            int personAge, personHeight, personPhoneNumber;
+            float personWeight;
+
+            Int32.TryParse(person.Age, out personAge);
+            Int32.TryParse(person.Height, out personHeight);
+            Int32.TryParse(person.PhoneNumber, out personPhoneNumber);
+            float.TryParse(person.Weight, out personWeight);
+
+            Console.WriteLine("Name: "+person.Name);
+            Console.WriteLine("Surname: " + person.Surname);
+            Console.WriteLine("Age: " + personAge);
+            Console.WriteLine("Height: " + personHeight);
+            Console.WriteLine("PhoneNumber: " + personPhoneNumber);
+            Console.WriteLine("Weight: " + personWeight);
+            Console.WriteLine("Email: " + person.Email);
         }
 
         enum Sex
