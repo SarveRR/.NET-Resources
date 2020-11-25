@@ -152,5 +152,24 @@ namespace Loops
             }
             Console.Write(dn + "\n"+binno);
         }
+
+        //10
+        public void LCM(int first, int second)
+        {
+            int i, j, hcf = 1, lcm;
+
+            j = (first < second) ? first : second;
+
+            for (i = 1; i <= j; i++)
+            {
+
+                if (first % i == 0 && second % i == 0)
+                {
+                    hcf = i;
+                }
+            }
+            lcm = (first * second) / hcf;
+            Console.Write("The LCM of {0} and {1} is : {2}", first, second, lcm);
+        }
     }
 }
