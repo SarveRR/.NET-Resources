@@ -81,5 +81,21 @@ namespace Conditions
                 Console.WriteLine("you are to young");
             }
         }
+
+        //6
+        public void Height(int height)
+        {
+            if (height >= 170)
+            {
+                Console.WriteLine("You are tall");
+            }
+            else
+            {
+                Console.WriteLine("You are short");
+            }
+        }
+
+        //7
+        
     }
 }
