@@ -51,7 +51,15 @@ namespace Loops
             if ((n == 1) || (n == 2))
                 return 1;
             else
-                return fib(n - 1) + fib(n - 2);
+                return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
+
+        public void ShowFibonacci()
+        {
+            for(int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(Fibonacci(i));
+            }
         }
     }
 }
