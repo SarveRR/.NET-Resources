@@ -163,5 +163,16 @@ namespace Conditions
         }
 
         //10
+        public void Triange(int a, int b, int c)
+        {
+            if((a+b<c)&&(a+c<b)&&(b+c<a))
+            {
+                Console.WriteLine("you can make triangle");
+            }
+            else
+            {
+                Console.WriteLine("you cant make triangle");
+            }
+        }
     }
 }
