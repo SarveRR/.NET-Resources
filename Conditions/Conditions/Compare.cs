@@ -20,5 +20,17 @@ namespace Conditions
                 Console.WriteLine("Different value");
             }
         }
+
+        public void EvenNumber(int number)
+        {
+            if(number % 2 == 0)
+            {
+                Console.WriteLine("Even number");
+            }
+            else
+            {
+                Console.WriteLine("Odd number");
+            }
+        }
     }
 }
