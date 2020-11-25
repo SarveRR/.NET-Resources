@@ -61,5 +61,18 @@ namespace Loops
                 Console.WriteLine(Fibonacci(i));
             }
         }
+
+        //4
+        public void PyramidInts(int number)
+        {
+            int k = 1;
+
+            for (int i = 1; i <= number; i++)
+            {     
+                for (int j = 1; j <= i; j++)
+                    Console.Write(k++);
+                    Console.Write("\n");
+            }
+        }
     }
 }
