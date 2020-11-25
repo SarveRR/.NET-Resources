@@ -137,5 +137,20 @@ namespace Loops
             }
             Console.Write("The number in reverse order is : "+ sum);
         }
+
+        //9
+        public void IntToBinary(int number)
+        {
+            int n, i, j, binno = 0, dn;
+            dn = number;
+            i = 1;
+            for (j = number; j > 0; j = j / 2)
+            {
+                binno = binno + (number % 2) * i;
+                i = i * 10;
+                number = number / 2;
+            }
+            Console.Write(dn + "\n"+binno);
+        }
     }
 }
