@@ -6,7 +6,7 @@ namespace Loops
     {
         static void Main(string[] args)
         {
-            
+            Loops loops = new Loops();
         }
     }
 }
