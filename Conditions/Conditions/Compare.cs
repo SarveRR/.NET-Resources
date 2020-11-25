@@ -132,5 +132,36 @@ namespace Conditions
                 Console.WriteLine("Rejected");
             }
         }
+
+        //9
+        public void Temperature(int temperature)
+        {
+            if(temperature<0)
+            {
+                Console.WriteLine("very cold");
+            }
+            else if(temperature>=0 && temperature<10)
+            {
+                Console.WriteLine("cold");
+            }
+            else if(temperature>=10 && temperature<20)
+            {
+                Console.WriteLine("chilly");
+            }
+            else if(temperature>=20 && temperature<30)
+            {
+                Console.WriteLine("heat");
+            }
+            else if(temperature>=30 && temperature<40)
+            {
+                Console.WriteLine("hot");
+            }
+            else
+            {
+                Console.WriteLine("very hot");
+            }
+        }
+
+        //10
     }
 }
