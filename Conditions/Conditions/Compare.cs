@@ -6,6 +6,7 @@ namespace Conditions
 {
     class Compare
     {
+        //1
         public void ComparisonInt()
         {
             int first = 5;
@@ -21,6 +22,7 @@ namespace Conditions
             }
         }
 
+        //2
         public void EvenNumber(int number)
         {
             if(number % 2 == 0)
@@ -33,6 +35,7 @@ namespace Conditions
             }
         }
 
+        //3
         public void PositiveNegativeNumber(int number)
         {
             if(number<0)
@@ -42,6 +45,19 @@ namespace Conditions
             else
             {
                 Console.WriteLine("Positive number");
+            }
+        }
+
+        //4
+        public void LeapYear(int year)
+        {
+            if(year % 4 == 0)
+            {
+                Console.WriteLine(year+"is leap year");
+            }
+            else
+            {
+                Console.WriteLine(year + "isn't leap year");
             }
         }
     }
