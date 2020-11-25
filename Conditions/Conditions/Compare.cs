@@ -115,5 +115,22 @@ namespace Conditions
                 Console.WriteLine("Something goes wrong");
             }
         }
+
+        //8
+        public void Recruitment(int maths, int chemistry, int physics)
+        {
+            int all = maths + chemistry + physics;
+            int mathsChemistry = maths + chemistry;
+            int mathsPhysics = maths + physics;
+
+            if((maths>=70 && chemistry>=55 && physics>=45)||(all>=180)||(mathsChemistry>=150 || mathsPhysics>=150))
+            {
+                Console.WriteLine("Accepted");
+            }
+            else
+            {
+                Console.WriteLine("Rejected");
+            }
+        }
     }
 }
