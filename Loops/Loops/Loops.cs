@@ -86,5 +86,21 @@ namespace Loops
                 Console.WriteLine(result);
             }
         }
+
+        //6
+        public void Addition()
+        {
+            float result = 0;
+
+            for(float i=0;i<=20;i++)
+            {
+                for(float j=1;j<=4;j++)
+                {
+                    result += i / j; 
+                }
+                Console.WriteLine(result);
+                result = 0;
+            }
+        }
     }
 }
