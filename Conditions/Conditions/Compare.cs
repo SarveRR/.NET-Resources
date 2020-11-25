@@ -174,5 +174,34 @@ namespace Conditions
                 Console.WriteLine("you cant make triangle");
             }
         }
+
+        //11
+        public void Grade(int grade)
+        {
+            switch(grade)
+            {
+                case 1:
+                    Console.WriteLine("one");
+                    break;
+                case 2:
+                    Console.WriteLine("two");
+                    break;
+                case 3:
+                    Console.WriteLine("three");
+                    break;
+                case 4:
+                    Console.WriteLine("four");
+                    break;
+                case 5:
+                    Console.WriteLine("five");
+                    break;
+                case 6:
+                    Console.WriteLine("six");
+                    break;
+                default:
+                    Console.WriteLine("Something goes wrong");
+                    break;
+            }
+        }
     }
 }
