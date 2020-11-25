@@ -19,6 +19,15 @@ namespace Loops
             return true;
         }
 
-        
+        public void ShowPrimeNumbers()
+        {
+            for (int i = 2; i <= 100; i++)
+            {
+                if (PrimeNumbers(i) == true)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
     }
 }
