@@ -32,5 +32,17 @@ namespace Conditions
                 Console.WriteLine("Odd number");
             }
         }
+
+        public void PositiveNegativeNumber(int number)
+        {
+            if(number<0)
+            {
+                Console.WriteLine("Negative number");
+            }
+            else
+            {
+                Console.WriteLine("Positive number");
+            }
+        }
     }
 }
