@@ -74,5 +74,17 @@ namespace Loops
                     Console.Write("\n");
             }
         }
+        
+        //5
+        public void PowerInts()
+        {
+            int result;
+
+            for(int i=1; i<=20; i++)
+            {
+                result = i * i * i;
+                Console.WriteLine(result);
+            }
+        }
     }
 }
