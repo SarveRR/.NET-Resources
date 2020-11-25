@@ -60,5 +60,26 @@ namespace Conditions
                 Console.WriteLine(year + "isn't leap year");
             }
         }
+
+        //5
+        public void RequiredAge(int age)
+        {
+            if(age>=21 && age<30)
+            {
+                Console.WriteLine("envoy");
+            }
+            else if(age>=30 && age<35)
+            {
+                Console.WriteLine("envoy, senator, prime minister");
+            }
+            else if(age>=35)
+            {
+                Console.WriteLine("envoy, senator, prime minister, president");
+            }
+            else
+            {
+                Console.WriteLine("you are to young");
+            }
+        }
     }
 }
