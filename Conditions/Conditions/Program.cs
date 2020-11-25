@@ -34,7 +34,7 @@ namespace Conditions
             Console.WriteLine("//////////////////////////////////////");
 
             //7
-            compare.ComparisionThreeInts(10,9,8);
+            compare.ComparisionThreeInts(10,9,33);
             Console.WriteLine("//////////////////////////////////////");
 
             //8
@@ -46,7 +46,7 @@ namespace Conditions
             Console.WriteLine("//////////////////////////////////////");
 
             //10
-            compare.Triange(5,6,7);
+            compare.Triange(5,6,10);
             Console.WriteLine("//////////////////////////////////////");
 
             //11
