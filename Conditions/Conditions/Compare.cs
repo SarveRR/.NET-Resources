@@ -96,6 +96,24 @@ namespace Conditions
         }
 
         //7
-        
+        public void ComparisionThreeInts(int first, int second, int third)
+        {
+            if(first>second && first>third)
+            {     
+                 Console.WriteLine(first);               
+            }
+            else if(second>first && second>third)
+            {
+                Console.WriteLine(second);
+            }
+            else if(third>first && third>second)
+            {
+                Console.WriteLine(third);
+            }
+            else
+            {
+                Console.WriteLine("Something goes wrong");
+            }
+        }
     }
 }
