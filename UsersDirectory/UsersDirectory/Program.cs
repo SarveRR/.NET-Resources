@@ -12,17 +12,19 @@ namespace UsersDirectory
             Console.WriteLine("USERS DIRECTORY");
             Console.WriteLine("Choose option:");
 
-            var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+            var mainMenu = actionService.GetMenuActionsByMenuName("MainMenu");
             for(int i = 0; i < mainMenu.Count; i++)
             {
                 Console.WriteLine(mainMenu[i].Id+" "+ mainMenu[i].Name);
             }
 
             var opertion = Console.ReadKey();
+            UserService userService = new UserService();
             switch(opertion.KeyChar)
             {
                 case '1':
-
+                    var keyInfo = userService.AddNewUserView(actionService);
+                    
                     break;
                 case '2':
                     break;
@@ -40,10 +42,16 @@ namespace UsersDirectory
 
         private static MenuActionService Initialize(MenuActionService actionService)
         {
-            actionService.AddNewAction(1, "Add user", "Main");
-            actionService.AddNewAction(2, "Remove user", "Main");
-            actionService.AddNewAction(3, "Show cities", "Main");
-            actionService.AddNewAction(4, "Show user", "Main");
+            actionService.AddNewAction(1, "Add user", "MainMenu");
+            actionService.AddNewAction(2, "Remove user", "MainMenu");
+            actionService.AddNewAction(3, "Show cities", "MainMenu");
+            actionService.AddNewAction(4, "Show user", "MainMenu");
+            actionService.AddNewAction(5, "Exit", "MainMenu");
+
+            actionService.AddNewAction(1, "Cracow", "AddNewUserMenu");
+            actionService.AddNewAction(2, "Warsaw", "AddNewUserMenu");
+            actionService.AddNewAction(3, "Wroclaw", "AddNewUserMenu");
+            actionService.AddNewAction(4, "Gdansk", "AddNewUserMenu");
             return actionService;
         }
     }
