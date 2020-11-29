@@ -4,7 +4,10 @@ using System.Text;
 
 namespace UsersDirectory
 {
-    class MenuAction
+    public class MenuAction
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string MenuName { get; set; }
     }
 }
