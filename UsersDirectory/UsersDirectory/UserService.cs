@@ -81,6 +81,21 @@ namespace UsersDirectory
             return id;
         }
 
-        
+        public void UserDetailView(int detailId)
+        {
+            User userToShow = new User();
+            foreach (var user in Users)
+            {
+                if (detailId == user.Id)
+                {
+                    userToShow = user;
+                    break;
+                }
+            }
+            Console.WriteLine("Id: " + userToShow.Id);
+            Console.WriteLine("Name: " + userToShow.Name);
+            Console.WriteLine("Surname: " + userToShow.SurName);
+            Console.WriteLine("City: " + userToShow.CityId);
+        }
     }
 }
