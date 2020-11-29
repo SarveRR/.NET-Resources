@@ -44,8 +44,8 @@ namespace UsersDirectory
             user.Id = userId;
             user.Name = name;
             user.SurName = surname;
-
             Users.Add(user);
+
             return userId;
         }
 
