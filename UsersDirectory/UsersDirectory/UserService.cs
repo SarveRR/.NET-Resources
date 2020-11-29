@@ -110,7 +110,18 @@ namespace UsersDirectory
 
         public void UserByCityView(int cityId)
         {
-            throw new NotImplementedException();
+            List<User> usersToShow = new List<User>();
+            foreach (var user in Users)
+            {
+                if (cityId == user.CityId)
+                {
+                    usersToShow.Add(user);
+                }
+            }
+            foreach (var user in usersToShow)
+            {
+                Console.WriteLine("Id: " + user.Id+" name: " + user.Name + " surname: " + user.SurName + " city id: " + user.CityId);
+            }
         }
     }
 }
