@@ -31,5 +31,10 @@ namespace UsersDirectory
             }
             return result;
         }
+
+        public void ExitProgram()
+        {
+            Environment.Exit(0);
+        }
     }
 }

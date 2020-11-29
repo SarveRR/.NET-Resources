@@ -10,10 +10,9 @@ namespace UsersDirectory
             actionService = Initialize(actionService);
             UserService userService = new UserService();
 
-            Console.WriteLine("USERS DIRECTORY");
-
             while (true)
             {
+                Console.WriteLine("USERS DIRECTORY");
                 Console.WriteLine("Choose option:");
 
                 var mainMenu = actionService.GetMenuActionsByMenuName("MainMenu");
@@ -23,6 +22,7 @@ namespace UsersDirectory
                 }
 
                 var opertion = Console.ReadKey();
+                Console.Clear();
 
                 switch (opertion.KeyChar)
                 {
@@ -43,9 +43,13 @@ namespace UsersDirectory
                         userService.UserByCityView(cityId);
                         break;
                     case '5':
+                        actionService.ExitProgram();
                         break;
                     default:
                         Console.WriteLine("Wrong option");
+                        Console.WriteLine("\nPress any key to back to menu...");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                 }
             }

@@ -21,6 +21,7 @@ namespace UsersDirectory
                 Console.WriteLine(addNewUserMenu[i].Id + " " + addNewUserMenu[i].Name);
             }
             var opertion = Console.ReadKey();
+            Console.Clear();
             return opertion;
         }
 
@@ -37,6 +38,7 @@ namespace UsersDirectory
             string name = Console.ReadLine();
             Console.WriteLine("Surname:");
             string surname = Console.ReadLine();
+            Console.Clear();
 
             user.CityId = cityId;
             user.Id = userId;
@@ -51,6 +53,7 @@ namespace UsersDirectory
         {
             Console.WriteLine("Enter user id you want to remove:");
             var userId = Console.ReadKey();
+            Console.Clear();
             int id;
             Int32.TryParse(userId.KeyChar.ToString(), out id);
 
@@ -75,6 +78,7 @@ namespace UsersDirectory
         {
             Console.WriteLine("Enter user id you want to show:");
             var userId = Console.ReadKey();
+            Console.Clear();
             int id;
             Int32.TryParse(userId.KeyChar.ToString(), out id);
 
@@ -96,12 +100,16 @@ namespace UsersDirectory
             Console.WriteLine("Name: " + userToShow.Name);
             Console.WriteLine("Surname: " + userToShow.SurName);
             Console.WriteLine("City: " + userToShow.CityId);
+            Console.WriteLine("\nPress any key to back to menu...");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public int UserByCitySelectionView()
         {
             Console.WriteLine("Enter city id for users you want to show:");
             var cityId = Console.ReadKey();
+            Console.Clear();
             int id;
             Int32.TryParse(cityId.KeyChar.ToString(), out id);
 
@@ -122,6 +130,9 @@ namespace UsersDirectory
             {
                 Console.WriteLine("Id: " + user.Id+" name: " + user.Name + " surname: " + user.SurName + " city id: " + user.CityId);
             }
+            Console.WriteLine("\nPress any key to back to menu...");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
