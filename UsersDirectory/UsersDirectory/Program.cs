@@ -7,7 +7,7 @@ namespace UsersDirectory
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-            Initialize(actionService);
+            actionService = Initialize(actionService);
             UserService userService = new UserService();
 
             Console.WriteLine("USERS DIRECTORY");
@@ -39,6 +39,8 @@ namespace UsersDirectory
                         userService.UserDetailView(detailId);
                         break;
                     case '4':
+                        var cityId = userService.UserByCitySelectionView();
+                        userService.UserByCityView(cityId);
                         break;
                     case '5':
                         break;

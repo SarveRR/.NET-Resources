@@ -97,5 +97,20 @@ namespace UsersDirectory
             Console.WriteLine("Surname: " + userToShow.SurName);
             Console.WriteLine("City: " + userToShow.CityId);
         }
+
+        public int UserByCitySelectionView()
+        {
+            Console.WriteLine("Enter city id for users you want to show:");
+            var cityId = Console.ReadKey();
+            int id;
+            Int32.TryParse(cityId.KeyChar.ToString(), out id);
+
+            return id;
+        }
+
+        public void UserByCityView(int cityId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
