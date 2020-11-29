@@ -19,6 +19,23 @@ namespace UsersDirectory
             }
 
             var opertion = Console.ReadKey();
+            switch(opertion.KeyChar)
+            {
+                case '1':
+
+                    break;
+                case '2':
+                    break;
+                case '3':
+                    break;
+                case '4':
+                    break;
+                case '5':
+                    break;
+                default:
+                    Console.WriteLine("Wrong option");
+                    break;
+            }
         }
 
         private static MenuActionService Initialize(MenuActionService actionService)
