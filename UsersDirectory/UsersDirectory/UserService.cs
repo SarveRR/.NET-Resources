@@ -57,7 +57,18 @@ namespace UsersDirectory
             return id;
         }
 
-
-
+        public void RemoveUser(int removeId)
+        {
+            User userToRemove = new User();
+            foreach (var user in Users)
+            {
+                if(removeId == user.Id)
+                {
+                    userToRemove = user;
+                    break;
+                }
+            }
+            Users.Remove(userToRemove);
+        }
     }
 }
