@@ -6,7 +6,8 @@ namespace UsersDirectory
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("USERS DIRECTORY");
+            Console.WriteLine("Choose option:");
         }
     }
 }
