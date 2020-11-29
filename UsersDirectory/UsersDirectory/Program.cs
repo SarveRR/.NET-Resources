@@ -11,6 +11,14 @@ namespace UsersDirectory
 
             Console.WriteLine("USERS DIRECTORY");
             Console.WriteLine("Choose option:");
+
+            var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+            for(int i = 0; i < mainMenu.Count; i++)
+            {
+                Console.WriteLine(mainMenu[i].Id+" "+ mainMenu[i].Name);
+            }
+
+            var opertion = Console.ReadKey();
         }
 
         private static MenuActionService Initialize(MenuActionService actionService)
