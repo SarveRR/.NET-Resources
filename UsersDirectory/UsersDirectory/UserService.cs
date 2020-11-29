@@ -12,24 +12,8 @@ namespace UsersDirectory
             Users = new List<User>();
         }
 
-        public ConsoleKeyInfo AddNewUserView(MenuActionService actionService)
+        public (int,string,string,string) AddNewUserView(MenuActionService actionService)
         {
-            var addNewUserMenu = actionService.GetMenuActionsByMenuName("AddNewUserMenu");
-            Console.WriteLine("Choose city:");
-            for (int i = 0; i < addNewUserMenu.Count; i++)
-            {
-                Console.WriteLine(addNewUserMenu[i].Id + " " + addNewUserMenu[i].Name);
-            }
-            var opertion = Console.ReadKey();
-            Console.Clear();
-            return opertion;
-        }
-
-        public int AddNewUser(char userType)
-        {
-            int cityId;
-            Int32.TryParse(userType.ToString(), out cityId);
-            User user = new User();
             Console.WriteLine("Enter new user id:");
             var id = Console.ReadLine();
             int userId;
@@ -38,15 +22,25 @@ namespace UsersDirectory
             string name = Console.ReadLine();
             Console.WriteLine("Surname:");
             string surname = Console.ReadLine();
+            Console.WriteLine("City:");
+            string city = Console.ReadLine();
             Console.Clear();
 
-            user.CityId = cityId;
+            return (userId, name, surname, city);
+        }
+
+        public int AddNewUser(int userId, string name, string surName, string city)
+        {
+            User user = new User();
+
             user.Id = userId;
             user.Name = name;
-            user.SurName = surname;
+            user.SurName = surName;
+            user.City = city;
+
             Users.Add(user);
 
-            return userId;
+            return user.Id;
         }
 
         public int RemoveUserView()
@@ -99,36 +93,34 @@ namespace UsersDirectory
             Console.WriteLine("Id: " + userToShow.Id);
             Console.WriteLine("Name: " + userToShow.Name);
             Console.WriteLine("Surname: " + userToShow.SurName);
-            Console.WriteLine("City: " + userToShow.CityId);
+            Console.WriteLine("City: " + userToShow.City);
             Console.WriteLine("\nPress any key to back to menu...");
             Console.ReadKey();
             Console.Clear();
         }
 
-        public int UserByCitySelectionView()
+        public string UserByCitySelectionView()
         {
-            Console.WriteLine("Enter city id for users you want to show:");
-            var cityId = Console.ReadKey();
+            Console.WriteLine("Enter city for users you want to show:");
+            var cityName = Console.ReadLine();
             Console.Clear();
-            int id;
-            Int32.TryParse(cityId.KeyChar.ToString(), out id);
 
-            return id;
+            return cityName.ToString();
         }
 
-        public void UserByCityView(int cityId)
+        public void UserByCityView(string cityName)
         {
             List<User> usersToShow = new List<User>();
             foreach (var user in Users)
             {
-                if (cityId == user.CityId)
+                if (cityName == user.City)
                 {
                     usersToShow.Add(user);
                 }
             }
             foreach (var user in usersToShow)
             {
-                Console.WriteLine("Id: " + user.Id+" name: " + user.Name + " surname: " + user.SurName + " city id: " + user.CityId);
+                Console.WriteLine("Id: " + user.Id+" name: " + user.Name + " surname: " + user.SurName + " city: " + user.City);
             }
             Console.WriteLine("\nPress any key to back to menu...");
             Console.ReadKey();

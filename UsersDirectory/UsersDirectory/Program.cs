@@ -27,8 +27,8 @@ namespace UsersDirectory
                 switch (opertion.KeyChar)
                 {
                     case '1':
-                        var keyInfo = userService.AddNewUserView(actionService);
-                        var id = userService.AddNewUser(keyInfo.KeyChar);
+                        var userParameters = userService.AddNewUserView(actionService);
+                        var id = userService.AddNewUser(userParameters.Item1, userParameters.Item2, userParameters.Item3, userParameters.Item4);
                         break;
                     case '2':
                         var removeId = userService.RemoveUserView();
@@ -39,8 +39,8 @@ namespace UsersDirectory
                         userService.UserDetailView(detailId);
                         break;
                     case '4':
-                        var cityId = userService.UserByCitySelectionView();
-                        userService.UserByCityView(cityId);
+                        var cityName = userService.UserByCitySelectionView();
+                        userService.UserByCityView(cityName);
                         break;
                     case '5':
                         actionService.ExitProgram();
@@ -63,10 +63,6 @@ namespace UsersDirectory
             actionService.AddNewAction(4, "Show user by cities", "MainMenu");
             actionService.AddNewAction(5, "Exit", "MainMenu");
 
-            actionService.AddNewAction(1, "Cracow", "AddNewUserMenu");
-            actionService.AddNewAction(2, "Warsaw", "AddNewUserMenu");
-            actionService.AddNewAction(3, "Wroclaw", "AddNewUserMenu");
-            actionService.AddNewAction(4, "Gdansk", "AddNewUserMenu");
             return actionService;
         }
     }
