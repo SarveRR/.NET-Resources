@@ -24,7 +24,7 @@ namespace UsersDirectory
             {
                 case '1':
                     var keyInfo = userService.AddNewUserView(actionService);
-                    
+                    var id = userService.AddNewUser(keyInfo.KeyChar);
                     break;
                 case '2':
                     break;

@@ -23,5 +23,28 @@ namespace UsersDirectory
             var opertion = Console.ReadKey();
             return opertion;
         }
+
+        public int AddNewUser(char userType)
+        {
+            int cityId;
+            Int32.TryParse(userType.ToString(), out cityId);
+            User user = new User();
+            user.CityId = cityId;
+            Console.WriteLine("Enter new user id:");
+            var id = Console.ReadKey();
+            int userId;
+            Int32.TryParse(id.ToString(), out userId);
+            Console.WriteLine("Name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Surname:");
+            string surname = Console.ReadLine();
+
+            user.Id = userId;
+            user.Name = name;
+            user.SurName = surname;
+
+            Users.Add(user);
+            return userId;
+        }
     }
 }
