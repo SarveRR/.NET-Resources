@@ -46,5 +46,18 @@ namespace UsersDirectory
             Users.Add(user);
             return userId;
         }
+
+        public int RemoveUserView()
+        {
+            Console.WriteLine("Enter user id you want to remove:");
+            var userId = Console.ReadKey();
+            int id;
+            Int32.TryParse(userId.ToString(), out id);
+
+            return id;
+        }
+
+
+
     }
 }

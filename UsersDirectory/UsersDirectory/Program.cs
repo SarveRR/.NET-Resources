@@ -27,6 +27,8 @@ namespace UsersDirectory
                     var id = userService.AddNewUser(keyInfo.KeyChar);
                     break;
                 case '2':
+                    var removeId = userService.RemoveUserView();
+                    userService.RemoveUser(removeId);
                     break;
                 case '3':
                     break;
