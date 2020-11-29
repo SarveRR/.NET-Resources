@@ -29,16 +29,16 @@ namespace UsersDirectory
             int cityId;
             Int32.TryParse(userType.ToString(), out cityId);
             User user = new User();
-            user.CityId = cityId;
             Console.WriteLine("Enter new user id:");
-            var id = Console.ReadKey();
+            var id = Console.ReadLine();
             int userId;
-            Int32.TryParse(id.ToString(), out userId);
+            Int32.TryParse(id, out userId);
             Console.WriteLine("Name:");
             string name = Console.ReadLine();
             Console.WriteLine("Surname:");
             string surname = Console.ReadLine();
 
+            user.CityId = cityId;
             user.Id = userId;
             user.Name = name;
             user.SurName = surname;
@@ -52,7 +52,7 @@ namespace UsersDirectory
             Console.WriteLine("Enter user id you want to remove:");
             var userId = Console.ReadKey();
             int id;
-            Int32.TryParse(userId.ToString(), out id);
+            Int32.TryParse(userId.KeyChar.ToString(), out id);
 
             return id;
         }
@@ -70,5 +70,17 @@ namespace UsersDirectory
             }
             Users.Remove(userToRemove);
         }
+
+        public int UserDetailSelectionView()
+        {
+            Console.WriteLine("Enter user id you want to show:");
+            var userId = Console.ReadKey();
+            int id;
+            Int32.TryParse(userId.KeyChar.ToString(), out id);
+
+            return id;
+        }
+
+        
     }
 }
