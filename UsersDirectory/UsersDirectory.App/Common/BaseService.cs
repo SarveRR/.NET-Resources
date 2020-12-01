@@ -68,12 +68,23 @@ namespace UsersDirectory.App.Common
             Console.Clear();
         }
 
-        public void GetUserByCity(T user)
+        public void GetUserByCity(string cityName)
         {
-            Console.WriteLine("Id: " + user.Id);
-            Console.WriteLine("Name: " + user.Id);
-            Console.WriteLine("Surname: " + user.SurName);
-            Console.WriteLine("City: " + user.City);
+            List<User> usersToShow = new List<User>();
+            User newUser;
+            foreach (var user in Users)
+            {
+                if (cityName == user.City)
+                {
+                    newUser = new User(user.Id, user.Name, user.SurName, user.City);
+                    usersToShow.Add(newUser);
+                }
+            }
+
+            foreach (var user in usersToShow)
+            {
+                Console.WriteLine("Id: " + user.Id + " name: " + user.Name + " surname: " + user.SurName + " city: " + user.City);
+            }
             Console.WriteLine("\nPress any key to back to menu...");
             Console.ReadKey();
             Console.Clear();

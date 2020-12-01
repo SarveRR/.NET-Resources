@@ -68,18 +68,14 @@ namespace UsersDirectory.App.Managers
             return id;
         }
 
-        public int GetUserByCityManager()
+        public string GetUserByCityManager()
         {
-            Console.WriteLine("Enter user id you want to show:");
-            var userId = Console.ReadKey();
+            Console.WriteLine("Enter city for users you want to show:");
+            string cityName = Console.ReadLine();
             Console.Clear();
-            int id;
-            Int32.TryParse(userId.KeyChar.ToString(), out id);
+            _userService.GetUserByCity(cityName);
 
-            var user = _userService.GetUserById(id);
-            _userService.GetUserDetails(user);
-
-            return id;
+            return cityName;
         }
     }
 }
