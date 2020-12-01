@@ -1,4 +1,5 @@
 ﻿using System;
+using UsersDirectory.App.Concrete;
 
 namespace UsersDirectory
 {
@@ -7,8 +8,7 @@ namespace UsersDirectory
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-            actionService = Initialize(actionService);
-            UserService userService = new UserService();
+            UserService userService= new UserService();
 
             while (true)
             {
