@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersDirectory.App.Common;
 
-namespace UsersDirectory
+namespace UsersDirectory.App
 {
-    public class UserService
+    public class UserService : BaseService<User>
     {
         public List<User> Users { get; set; }
         public UserService()
