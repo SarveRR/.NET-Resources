@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersDirectory", "UsersDire
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectory.App", "UsersDirectory.App\UsersDirectory.App.csproj", "{80B1FB97-083B-4B28-B93E-69D7F2ECABBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectory.Domain", "UsersDirectory.Domain\UsersDirectory.Domain.csproj", "{8B47ADFD-8A1F-4961-84F4-0527E19D20C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{80B1FB97-083B-4B28-B93E-69D7F2ECABBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80B1FB97-083B-4B28-B93E-69D7F2ECABBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80B1FB97-083B-4B28-B93E-69D7F2ECABBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B47ADFD-8A1F-4961-84F4-0527E19D20C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B47ADFD-8A1F-4961-84F4-0527E19D20C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B47ADFD-8A1F-4961-84F4-0527E19D20C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B47ADFD-8A1F-4961-84F4-0527E19D20C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
