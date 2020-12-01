@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UsersDirectory.App.Abstract;
+using UsersDirectory.Domain.Common;
 
 namespace UsersDirectory.App.Common
 {
-    public class BaseService<T> : IService<T>
+    public class BaseService<T> : IService<T> where T : BaseEntity
     {
         public List<T> Users { get; set; }
 
@@ -22,17 +24,22 @@ namespace UsersDirectory.App.Common
 
         public List<T> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return Users;
         }
 
         public void RemoveUser(T user)
         {
-            throw new NotImplementedException();
+            Users.Remove(user);
         }
 
         public int UpdateUser(T user)
         {
-            throw new NotImplementedException();
+            var entity = Users.FirstOrDefault(p => p.Id == user.Id);
+            if(entity != null)
+            {
+                entity = user;
+            }
+            return entity.Id;
         }
     }
 }
