@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using UsersDirectory.App.Abstract;
 using UsersDirectory.Domain.Common;
-using UsersDirectory.Domain.Entity;
 
 namespace UsersDirectory.App.Common
 {
@@ -69,7 +68,7 @@ namespace UsersDirectory.App.Common
         public int GetUserDetails(T user)
         {
             Console.WriteLine("Id: " + user.Id);
-            Console.WriteLine("Name: " + user.Id);
+            Console.WriteLine("Name: " + user.Name);
             Console.WriteLine("Surname: " + user.SurName);
             Console.WriteLine("City: " + user.City);
             Console.WriteLine("\nPress any key to back to menu...");
@@ -79,20 +78,9 @@ namespace UsersDirectory.App.Common
             return user.Id;
         }
 
-        public void GetUserByCity(string cityName)
+        public void GetUserByCity(List<T> users)
         {
-            List<User> usersToShow = new List<User>();
-            User newUser;
-            foreach (var user in Users)
-            {
-                if (cityName == user.City)
-                {
-                    newUser = new User(user.Id, user.Name, user.SurName, user.City);
-                    usersToShow.Add(newUser);
-                }
-            }
-
-            foreach (var user in usersToShow)
+            foreach (var user in users)
             {
                 Console.WriteLine("Id: " + user.Id + " name: " + user.Name + " surname: " + user.SurName + " city: " + user.City);
             }

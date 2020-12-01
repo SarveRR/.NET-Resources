@@ -1,6 +1,7 @@
 ﻿using System;
 using UsersDirectory.App.Concrete;
 using UsersDirectory.App.Managers;
+using UsersDirectory.Domain.Entity;
 
 namespace UsersDirectory
 {
@@ -11,6 +12,7 @@ namespace UsersDirectory
             MenuActionService actionService = new MenuActionService();
             UserService userService = new UserService();
             UserManager userManager = new UserManager(actionService, userService);
+            User userTest = new User(1, "s", "s", "s");
 
             while (true)
             {

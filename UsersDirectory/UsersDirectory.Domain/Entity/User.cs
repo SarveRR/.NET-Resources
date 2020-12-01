@@ -9,6 +9,7 @@ namespace UsersDirectory.Domain.Entity
     {
         public User(int id, string name, string surname, string city)
         {
+            Id = id;
             Name = name;
             SurName = surname;
             City = city;

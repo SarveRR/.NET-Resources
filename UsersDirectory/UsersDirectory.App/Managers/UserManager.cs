@@ -32,9 +32,8 @@ namespace UsersDirectory.App.Managers
             Console.WriteLine("City:");
             string city = Console.ReadLine();
             Console.Clear();
-            int lastId = _userService.GetLastId();
-            lastId++;
-            User user = new User(lastId, name, surname, city);
+            var lastId = _userService.GetLastId();
+            User user = new User(lastId+1, name, surname, city);
             _userService.AddUser(user);
 
             return user.Id;
@@ -43,29 +42,29 @@ namespace UsersDirectory.App.Managers
         public int RemoveUserManager()
         {
             Console.WriteLine("Enter user id you want to remove:");
-            var userId = Console.ReadKey();
+            var id = Console.ReadLine();
+            int userId;
+            Int32.TryParse(id, out userId);
             Console.Clear();
-            int id;
-            Int32.TryParse(userId.KeyChar.ToString(), out id);
 
-            var user = _userService.GetUserById(id);
+            var user = _userService.GetUserById(userId);
             _userService.RemoveUser(user);
 
-            return id;
+            return userId;
         }
 
         public int GetUserDetailsManager()
         {
             Console.WriteLine("Enter user id you want to show:");
-            var userId = Console.ReadKey();
+            var id = Console.ReadLine();
+            int userId;
+            Int32.TryParse(id, out userId);
             Console.Clear();
-            int id;
-            Int32.TryParse(userId.KeyChar.ToString(), out id);
 
-            var user = _userService.GetUserById(id);
+            var user = _userService.GetUserById(userId);
             _userService.GetUserDetails(user);
 
-            return id;
+            return userId;
         }
 
         public string GetUserByCityManager()
@@ -73,7 +72,19 @@ namespace UsersDirectory.App.Managers
             Console.WriteLine("Enter city for users you want to show:");
             string cityName = Console.ReadLine();
             Console.Clear();
-            _userService.GetUserByCity(cityName);
+
+            User newUser;
+            List<User> usersToShow = new List<User>();
+
+            foreach (var user in _userService.Users)
+            {
+                if (cityName == user.City)
+                {
+                    newUser = new User(user.Id, user.Name, user.SurName, user.City);
+                    usersToShow.Add(newUser);
+                }
+            }
+            _userService.GetUserByCity(usersToShow);
 
             return cityName;
         }

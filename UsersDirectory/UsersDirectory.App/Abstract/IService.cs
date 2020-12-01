@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersDirectory.Domain.Entity;
 
 namespace UsersDirectory.App.Abstract
 {
@@ -12,7 +13,7 @@ namespace UsersDirectory.App.Abstract
         int UpdateUser(T user);
         void RemoveUser(T user);
         int GetUserDetails(T user);
-        void GetUserByCity(string cityName);
+        void GetUserByCity(List<T> users);
         T GetUserById(int id);
         int GetLastId();
     }
