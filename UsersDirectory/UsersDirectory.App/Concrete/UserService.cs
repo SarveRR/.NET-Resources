@@ -8,6 +8,8 @@ namespace UsersDirectory.App.Concrete
 {
     public class UserService : BaseService<User>
     {
+
+
         //public List<User> Users { get; set; }
         //public UserService()
         //{

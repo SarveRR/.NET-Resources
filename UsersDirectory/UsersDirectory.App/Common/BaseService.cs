@@ -16,6 +16,20 @@ namespace UsersDirectory.App.Common
             Users = new List<T>();
         }
 
+        public int GetLastId()
+        {
+            int lastId;
+            if(Users.Any())
+            {
+                lastId = Users.OrderBy(p => p.Id).LastOrDefault().Id;
+            }
+            else
+            {
+                lastId = 0;
+            }
+            return lastId;
+        }
+
         public int AddUser(T user)
         {
             Users.Add(user);

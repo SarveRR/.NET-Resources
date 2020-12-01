@@ -1,5 +1,6 @@
 ﻿using System;
 using UsersDirectory.App.Concrete;
+using UsersDirectory.App.Managers;
 
 namespace UsersDirectory
 {
@@ -8,7 +9,7 @@ namespace UsersDirectory
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-            UserService userService= new UserService();
+            UserManager userManager = new UserManager();
 
             while (true)
             {
@@ -27,8 +28,7 @@ namespace UsersDirectory
                 switch (opertion.KeyChar)
                 {
                     case '1':
-                        var userParameters = userService.AddNewUserView(actionService);
-                        var id = userService.AddNewUser(userParameters.Item1, userParameters.Item2, userParameters.Item3, userParameters.Item4);
+                        var newId = userManager.AddNewUser();
                         break;
                     case '2':
                         var removeId = userService.RemoveUserView();
