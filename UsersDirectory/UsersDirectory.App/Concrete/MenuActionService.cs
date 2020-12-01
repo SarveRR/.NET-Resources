@@ -8,6 +8,10 @@ namespace UsersDirectory.App.Concrete
 {
     public class MenuActionService : BaseService<MenuAction>
     {
+        public MenuActionService()
+        {
+            Initialize();
+        }
         public List<MenuAction> GetMenuActionsByMenuName(string menuName)
         {
             List<MenuAction> result = new List<MenuAction>();
