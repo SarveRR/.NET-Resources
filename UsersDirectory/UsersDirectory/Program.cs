@@ -54,16 +54,5 @@ namespace UsersDirectory
                 }
             }
         }
-
-        private static MenuActionService Initialize(MenuActionService actionService)
-        {
-            actionService.AddNewAction(1, "Add user", "MainMenu");
-            actionService.AddNewAction(2, "Remove user", "MainMenu");
-            actionService.AddNewAction(3, "Show users", "MainMenu");
-            actionService.AddNewAction(4, "Show user by cities", "MainMenu");
-            actionService.AddNewAction(5, "Exit", "MainMenu");
-
-            return actionService;
-        }
     }
 }
