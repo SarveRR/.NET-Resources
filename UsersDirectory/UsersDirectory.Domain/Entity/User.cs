@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UsersDirectory.Domain.Common;
 
-namespace UsersDirectory.Domain
+namespace UsersDirectory.Domain.Entity
 {
     public class User : BaseEntity
     {
