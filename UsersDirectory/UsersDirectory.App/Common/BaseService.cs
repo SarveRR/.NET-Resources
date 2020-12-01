@@ -60,7 +60,18 @@ namespace UsersDirectory.App.Common
         public void GetUserDetails(T user)
         {
             Console.WriteLine("Id: " + user.Id);
-            Console.WriteLine("Name: " + user.Name);
+            Console.WriteLine("Name: " + user.Id);
+            Console.WriteLine("Surname: " + user.SurName);
+            Console.WriteLine("City: " + user.City);
+            Console.WriteLine("\nPress any key to back to menu...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        public void GetUserByCity(T user)
+        {
+            Console.WriteLine("Id: " + user.Id);
+            Console.WriteLine("Name: " + user.Id);
             Console.WriteLine("Surname: " + user.SurName);
             Console.WriteLine("City: " + user.City);
             Console.WriteLine("\nPress any key to back to menu...");

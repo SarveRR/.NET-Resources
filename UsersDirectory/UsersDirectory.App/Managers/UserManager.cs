@@ -62,6 +62,23 @@ namespace UsersDirectory.App.Managers
             int id;
             Int32.TryParse(userId.KeyChar.ToString(), out id);
 
+            var user = _userService.GetUserById(id);
+            _userService.GetUserDetails(user);
+
+            return id;
+        }
+
+        public int GetUserByCityManager()
+        {
+            Console.WriteLine("Enter user id you want to show:");
+            var userId = Console.ReadKey();
+            Console.Clear();
+            int id;
+            Int32.TryParse(userId.KeyChar.ToString(), out id);
+
+            var user = _userService.GetUserById(id);
+            _userService.GetUserDetails(user);
+
             return id;
         }
     }
