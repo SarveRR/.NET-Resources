@@ -17,5 +17,10 @@ namespace UsersDirectory.Domain.Entity
             SurName = surname;
             City = city;
         }
+
+        public User()
+        {
+
+        }
     }
 }

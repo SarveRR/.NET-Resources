@@ -14,7 +14,13 @@ namespace UsersDirectory.App.Managers
             _userService = new UserService();
         }
 
-        public int AddNewUser()
+        public User GetUserById(int id)
+        {
+            var item = _userService.GetUserById(id);
+            return item;
+        }
+
+        public int AddUserManager()
         {
             Console.WriteLine("Enter new user id:");
             var id = Console.ReadLine();
@@ -30,7 +36,33 @@ namespace UsersDirectory.App.Managers
             int lastId = _userService.GetLastId();
             User user = new User(lastId + 1, name, surname, city);
             _userService.AddUser(user);
+
             return user.Id;
+        }
+
+        public int RemoveUserManager()
+        {
+            Console.WriteLine("Enter user id you want to remove:");
+            var userId = Console.ReadKey();
+            Console.Clear();
+            int id;
+            Int32.TryParse(userId.KeyChar.ToString(), out id);
+
+            var user = _userService.GetUserById(id);
+            _userService.RemoveUser(user);
+
+            return id;
+        }
+
+        public int GetUserDetailsManager()
+        {
+            Console.WriteLine("Enter user id you want to show:");
+            var userId = Console.ReadKey();
+            Console.Clear();
+            int id;
+            Int32.TryParse(userId.KeyChar.ToString(), out id);
+
+            return id;
         }
     }
 }

@@ -28,11 +28,10 @@ namespace UsersDirectory
                 switch (opertion.KeyChar)
                 {
                     case '1':
-                        var newId = userManager.AddNewUser();
+                        var newId = userManager.AddUserManager();
                         break;
                     case '2':
-                        var removeId = userService.RemoveUserView();
-                        userService.RemoveUser(removeId);
+                        var removeId = userManager.RemoveUserManager();
                         break;
                     case '3':
                         var detailId = userService.UserDetailSelectionView();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UsersDirectory.App.Abstract;
 using UsersDirectory.Domain.Common;
+using UsersDirectory.Domain.Entity;
 
 namespace UsersDirectory.App.Common
 {
@@ -54,6 +55,23 @@ namespace UsersDirectory.App.Common
                 entity = user;
             }
             return entity.Id;
+        }
+
+        public void GetUserDetails(T user)
+        {
+            Console.WriteLine("Id: " + user.Id);
+            Console.WriteLine("Name: " + user.Name);
+            Console.WriteLine("Surname: " + user.SurName);
+            Console.WriteLine("City: " + user.City);
+            Console.WriteLine("\nPress any key to back to menu...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        public T GetUserById(int id)
+        {
+            var entity = Users.FirstOrDefault(p => p.Id == id);
+            return entity;
         }
     }
 }
