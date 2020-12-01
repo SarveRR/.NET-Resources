@@ -4,7 +4,7 @@ using System.Text;
 using UsersDirectory.App.Common;
 using UsersDirectory.Domain.Entity;
 
-namespace UsersDirectory.App
+namespace UsersDirectory.App.Concrete
 {
     public class UserService : BaseService<User>
     {
