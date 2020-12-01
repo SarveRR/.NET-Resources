@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersDirectory.App.Abstract;
 using UsersDirectory.App.Concrete;
 using UsersDirectory.Domain.Entity;
 
@@ -8,10 +9,12 @@ namespace UsersDirectory.App.Managers
 {
     public class UserManager
     {
-        private UserService _userService;
-        public UserManager()
+        private readonly MenuActionService _actionService;
+        private IService<User> _userService;
+        public UserManager(MenuActionService actionService, IService<User> userService)
         {
-            _userService = new UserService();
+            _userService = userService;
+            _actionService = actionService;
         }
 
         public User GetUserById(int id)
@@ -22,10 +25,6 @@ namespace UsersDirectory.App.Managers
 
         public int AddUserManager()
         {
-            Console.WriteLine("Enter new user id:");
-            var id = Console.ReadLine();
-            int userId;
-            Int32.TryParse(id, out userId);
             Console.WriteLine("Name:");
             string name = Console.ReadLine();
             Console.WriteLine("Surname:");
@@ -34,7 +33,8 @@ namespace UsersDirectory.App.Managers
             string city = Console.ReadLine();
             Console.Clear();
             int lastId = _userService.GetLastId();
-            User user = new User(lastId + 1, name, surname, city);
+            lastId++;
+            User user = new User(lastId, name, surname, city);
             _userService.AddUser(user);
 
             return user.Id;
@@ -76,6 +76,29 @@ namespace UsersDirectory.App.Managers
             _userService.GetUserByCity(cityName);
 
             return cityName;
+        }
+
+        public void GetAllUsersManager()
+        {
+            _userService.GetAllUsers();
+        }
+
+        public void UpdateUserManager()
+        {
+            Console.WriteLine("Enter user id to edit:");
+            var id = Console.ReadLine();
+            int userId;
+            Int32.TryParse(id, out userId);
+            Console.WriteLine("New name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("New surname:");
+            string surname = Console.ReadLine();
+            Console.WriteLine("New city:");
+            string city = Console.ReadLine();
+            Console.Clear();
+            User user = new User(userId, name, surname, city);
+
+            _userService.UpdateUser(user);
         }
     }
 }

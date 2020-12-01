@@ -34,9 +34,11 @@ namespace UsersDirectory.App.Concrete
         {
             AddUser(new MenuAction(1, "Add user", "MainMenu"));
             AddUser(new MenuAction(2, "Remove user", "MainMenu"));
-            AddUser(new MenuAction(3, "Show users", "MainMenu"));
+            AddUser(new MenuAction(3, "Show user details", "MainMenu"));
             AddUser(new MenuAction(4, "Show user by cities", "MainMenu"));
-            AddUser(new MenuAction(5, "Exit", "MainMenu"));
+            AddUser(new MenuAction(5, "Show users", "MainMenu"));
+            AddUser(new MenuAction(6, "Update user", "MainMenu"));
+            AddUser(new MenuAction(7, "Exit", "MainMenu"));
         }
     }
 }

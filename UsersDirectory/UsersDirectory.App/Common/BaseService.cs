@@ -11,7 +11,6 @@ namespace UsersDirectory.App.Common
     public class BaseService<T> : IService<T> where T : BaseEntity
     {
         public List<T> Users { get; set; }
-
         public BaseService()
         {
             Users = new List<T>();
@@ -39,6 +38,14 @@ namespace UsersDirectory.App.Common
 
         public List<T> GetAllUsers()
         {
+            foreach (var user in Users)
+            {
+                Console.WriteLine("Id: " + user.Id + " name: " + user.Name + " surname: " + user.SurName + " city: " + user.City);
+            }
+            Console.WriteLine("\nPress any key to back to menu...");
+            Console.ReadKey();
+            Console.Clear();
+
             return Users;
         }
 
@@ -52,12 +59,14 @@ namespace UsersDirectory.App.Common
             var entity = Users.FirstOrDefault(p => p.Id == user.Id);
             if(entity != null)
             {
-                entity = user;
+                entity.Name = user.Name;
+                entity.SurName = user.SurName;
+                entity.City = user.City;
             }
             return entity.Id;
         }
 
-        public void GetUserDetails(T user)
+        public int GetUserDetails(T user)
         {
             Console.WriteLine("Id: " + user.Id);
             Console.WriteLine("Name: " + user.Id);
@@ -66,6 +75,8 @@ namespace UsersDirectory.App.Common
             Console.WriteLine("\nPress any key to back to menu...");
             Console.ReadKey();
             Console.Clear();
+
+            return user.Id;
         }
 
         public void GetUserByCity(string cityName)

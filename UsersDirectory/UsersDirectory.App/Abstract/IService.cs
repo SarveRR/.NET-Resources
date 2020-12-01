@@ -11,5 +11,9 @@ namespace UsersDirectory.App.Abstract
         int AddUser(T user);
         int UpdateUser(T user);
         void RemoveUser(T user);
+        int GetUserDetails(T user);
+        void GetUserByCity(string cityName);
+        T GetUserById(int id);
+        int GetLastId();
     }
 }

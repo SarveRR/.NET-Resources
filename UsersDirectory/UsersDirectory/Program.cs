@@ -9,7 +9,8 @@ namespace UsersDirectory
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-            UserManager userManager = new UserManager();
+            UserService userService = new UserService();
+            UserManager userManager = new UserManager(actionService, userService);
 
             while (true)
             {
@@ -37,10 +38,15 @@ namespace UsersDirectory
                         var detailsUserId = userManager.GetUserDetailsManager();
                         break;
                     case '4':
-                        var cityName = userService.UserByCitySelectionView();
-                        userService.UserByCityView(cityName);
+                        userManager.GetUserByCityManager();
                         break;
                     case '5':
+                        userManager.GetAllUsersManager();
+                        break;
+                    case '6':
+                        userManager.UpdateUserManager();
+                        break;
+                    case '7':
                         actionService.ExitProgram();
                         break;
                     default:
