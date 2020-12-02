@@ -30,6 +30,7 @@ namespace UsersDirectory.Tests
             returnedUser.Should().BeSameAs(user);
         }
 
+        [Fact]
         public void RemoveUserManagerUnitTest()
         {
             //Arrange
@@ -41,12 +42,10 @@ namespace UsersDirectory.Tests
             var manager = new UserManager(new MenuActionService(), mock.Object);
 
             //Act
-            var returnedUser = manager.RemoveUserManager(user: user.Id );
+            manager.RemoveUserManager(user.Id);
 
             //Assert
-            returnedUser.Should().BeOfType(typeof(User));
-            returnedUser.Should().NotBeNull();
-            returnedUser.Should().BeSameAs(user);
+            mock.Verify(u => u.RemoveUser(user));
         }
     }
 }
