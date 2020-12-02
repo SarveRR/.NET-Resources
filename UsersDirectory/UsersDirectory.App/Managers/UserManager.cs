@@ -23,27 +23,26 @@ namespace UsersDirectory.App.Managers
             return item;
         }
 
-        public int AddUserManager()
+        public int AddUserManager(int lastId = 0, string name = "Name", string surName = "SurName", string city = "City")
         {
             Console.WriteLine("Name:");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
             Console.WriteLine("Surname:");
-            string surname = Console.ReadLine();
+            surName = Console.ReadLine();
             Console.WriteLine("City:");
-            string city = Console.ReadLine();
+            city = Console.ReadLine();
             Console.Clear();
-            var lastId = _userService.GetLastId();
-            User user = new User(lastId+1, name, surname, city);
+            lastId = _userService.GetLastId();
+            User user = new User(lastId+1, name, surName, city);
             _userService.AddUser(user);
 
             return user.Id;
         }
 
-        public int RemoveUserManager()
+        public int RemoveUserManager(int userId = 0)
         {
             Console.WriteLine("Enter user id you want to remove:");
             var id = Console.ReadLine();
-            int userId;
             Int32.TryParse(id, out userId);
             Console.Clear();
 
@@ -53,11 +52,10 @@ namespace UsersDirectory.App.Managers
             return userId;
         }
 
-        public int GetUserDetailsManager()
+        public int GetUserDetailsManager(int userId = 0)
         {
             Console.WriteLine("Enter user id you want to show:");
             var id = Console.ReadLine();
-            int userId;
             Int32.TryParse(id, out userId);
             Console.Clear();
 
@@ -67,10 +65,10 @@ namespace UsersDirectory.App.Managers
             return userId;
         }
 
-        public string GetUserByCityManager()
+        public string GetUserByCityManager(string cityName = "City")
         {
             Console.WriteLine("Enter city for users you want to show:");
-            string cityName = Console.ReadLine();
+            cityName = Console.ReadLine();
             Console.Clear();
 
             User newUser;
@@ -94,20 +92,19 @@ namespace UsersDirectory.App.Managers
             _userService.GetAllUsers();
         }
 
-        public void UpdateUserManager()
+        public void UpdateUserManager(int userId = 0, string name = "Name", string surName = "SurName", string city = "City")
         {
             Console.WriteLine("Enter user id to edit:");
             var id = Console.ReadLine();
-            int userId;
             Int32.TryParse(id, out userId);
             Console.WriteLine("New name:");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
             Console.WriteLine("New surname:");
-            string surname = Console.ReadLine();
+            surName = Console.ReadLine();
             Console.WriteLine("New city:");
-            string city = Console.ReadLine();
+            city = Console.ReadLine();
             Console.Clear();
-            User user = new User(userId, name, surname, city);
+            User user = new User(userId, name, surName, city);
 
             _userService.UpdateUser(user);
         }
