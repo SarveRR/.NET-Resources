@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersDirectory.App.Abstract;
 using UsersDirectory.App.Common;
 using UsersDirectory.Domain.Entity;
 

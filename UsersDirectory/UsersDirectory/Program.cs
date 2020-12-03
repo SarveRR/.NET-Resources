@@ -11,8 +11,7 @@ namespace UsersDirectory
         {
             MenuActionService actionService = new MenuActionService();
             UserService userService = new UserService();
-            UserManager userManager = new UserManager(actionService, userService);
-            User userTest = new User(1, "s", "s", "s");
+            UserManager userManager = new UserManager(userService);
 
             while (true)
             {

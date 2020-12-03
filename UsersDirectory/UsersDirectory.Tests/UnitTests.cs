@@ -19,7 +19,7 @@ namespace UsersDirectory.Tests
             var mock = new Mock<IService<User>>();
             mock.Setup(u => u.GetUserById(1)).Returns(user);
 
-            var manager = new UserManager(new MenuActionService(), mock.Object);
+            var manager = new UserManager(mock.Object);
 
             //Act
             var returnedUser = manager.GetUserById(user.Id);
@@ -28,24 +28,6 @@ namespace UsersDirectory.Tests
             returnedUser.Should().BeOfType(typeof(User));
             returnedUser.Should().NotBeNull();
             returnedUser.Should().BeSameAs(user);
-        }
-
-        [Fact]
-        public void RemoveUserManagerUnitTest()
-        {
-            //Arrange
-            User user = new User(1, "Name", "Surname", "City");
-            var mock = new Mock<IService<User>>();
-            mock.Setup(u => u.GetUserById(1)).Returns(user);
-            mock.Setup(u => u.RemoveUser(It.IsAny<User>()));
-
-            var manager = new UserManager(new MenuActionService(), mock.Object);
-
-            //Act
-            manager.RemoveUserManager(user.Id);
-
-            //Assert
-            mock.Verify(u => u.RemoveUser(user));
         }
     }
 }
