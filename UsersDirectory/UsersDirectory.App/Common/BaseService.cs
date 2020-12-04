@@ -41,14 +41,10 @@ namespace UsersDirectory.App.Common
 
         public List<T> GetAllUsers()
         {
-            foreach (var user in Users)
-            {
-                Console.WriteLine("Id: " + user.Id + " name: " + user.Name + " surname: " + user.SurName + " city: " + user.City);
-            }
+            Users.Select(i => { Console.WriteLine("Id: " + i.Id + " name: " + i.Name + " surname: " + i.SurName + " city: " + i.City); return false; }).Count();
             Console.WriteLine("\nPress any key to back to menu...");
             Console.ReadKey();
             Console.Clear();
-
             return Users;
         }
 
@@ -84,10 +80,7 @@ namespace UsersDirectory.App.Common
 
         public void GetUserByCity(List<T> users)
         {
-            foreach (var user in users)
-            {
-                Console.WriteLine("Id: " + user.Id + " name: " + user.Name + " surname: " + user.SurName + " city: " + user.City);
-            }
+            users.Select(i => { Console.WriteLine("Id: " + i.Id + " name: " + i.Name + " surname: " + i.SurName + " city: " + i.City); return false; }).Count();
             Console.WriteLine("\nPress any key to back to menu...");
             Console.ReadKey();
             Console.Clear();

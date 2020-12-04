@@ -38,11 +38,11 @@ namespace UsersDirectory.App.Concrete
 
             StreamReader sr = new StreamReader(path);
             JsonReader reader = new JsonTextReader(sr);
-            var obj = serializer.Deserialize<List<User>>(reader);
+            var usersList1 = serializer.Deserialize<List<User>>(reader);
             reader.Close();
             sr.Close();
 
-            if (obj == null)
+            if (usersList1 == null)
             {
                 List<User> listToSave = new List<User>();
                 listToSave.Add(new User(1, "Name", "Surname", "City"));
@@ -55,11 +55,8 @@ namespace UsersDirectory.App.Concrete
             //read file without problem "file doesnt exist" and "empty file"
             StreamReader sr1 = new StreamReader(path);
             JsonReader reader1 = new JsonTextReader(sr1);
-            var obj1 = serializer.Deserialize<List<User>>(reader1);
-            foreach (var user in obj1)
-            {
-                _userService.Users.Add(user);
-            }
+            var usersList2 = serializer.Deserialize<List<User>>(reader1);
+            _userService.Users.AddRange(usersList2);
 
             reader1.Close();
             sr1.Close();
