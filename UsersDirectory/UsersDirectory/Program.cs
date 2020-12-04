@@ -15,6 +15,8 @@ namespace UsersDirectory
             MenuActionService actionService = new MenuActionService();
             UserService userService = new UserService();
             UserManager userManager = new UserManager(userService);
+            ListService listService = new ListService(userService);
+            listService.ReadDataFromJsonFile();
 
             while (true)
             {
@@ -34,9 +36,11 @@ namespace UsersDirectory
                 {
                     case '1':
                         var newUserId = userManager.AddUserManager();
+                        listService.SaveDataToJsonFile();
                         break;
                     case '2':
                         var removeUserId = userManager.RemoveUserManager();
+                        listService.SaveDataToJsonFile();
                         break;
                     case '3':
                         var detailsUserId = userManager.GetUserDetailsManager();
@@ -49,6 +53,7 @@ namespace UsersDirectory
                         break;
                     case '6':
                         userManager.UpdateUserManager();
+                        listService.SaveDataToJsonFile();
                         break;
                     case '7':
                         actionService.ExitProgram();
