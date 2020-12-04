@@ -17,8 +17,8 @@ namespace UsersDirectory.App.Managers
 
         public User GetUserById(int id)
         {
-            var item = _userService.GetUserById(id);
-            return item;
+            var user = _userService.GetUserById(id);
+            return user;
         }
 
         public int AddUserManager()

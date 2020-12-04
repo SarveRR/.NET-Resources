@@ -53,6 +53,20 @@ namespace UsersDirectory.Tests
             id.Should().Equals(user.Id);
         }
 
-        
+        [Fact]
+        public void UpdateUserTest()
+        {
+            //Arrange
+            User user = new User(31, "Name", "Surname", "City");
+            User userToUpdate = new User(31, null, "Surname1", "City");
+            IService<User> userService = new UserService();
+
+            //Act
+            userService.AddUser(user);
+            userService.UpdateUser(userToUpdate);
+            var afterUpdate = userService.Users.FirstOrDefault(p => p.Id == user.Id);
+            //Assert 
+            afterUpdate.Name.Should().BeNull();
+        }
     }
 }
