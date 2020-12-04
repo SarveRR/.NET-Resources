@@ -13,7 +13,7 @@ namespace UsersDirectory.App.Abstract
         int UpdateUser(T user);
         void RemoveUser(T user);
         int GetUserDetails(T user);
-        void GetUserByCity(List<T> users);
+        void GetUserByCity(IEnumerable<User> user);
         T GetUserById(int id);
         int GetLastId();
     }

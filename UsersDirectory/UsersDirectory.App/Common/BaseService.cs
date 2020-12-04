@@ -78,7 +78,7 @@ namespace UsersDirectory.App.Common
             return user.Id;
         }
 
-        public void GetUserByCity(List<T> users)
+        public void GetUserByCity(IEnumerable<User> users)
         {
             users.Select(i => { Console.WriteLine("Id: " + i.Id + " name: " + i.Name + " surname: " + i.SurName + " city: " + i.City); return false; }).Count();
             Console.WriteLine("\nPress any key to back to menu...");

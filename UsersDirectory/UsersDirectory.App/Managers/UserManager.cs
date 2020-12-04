@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UsersDirectory.App.Abstract;
 using UsersDirectory.App.Concrete;
@@ -71,17 +72,7 @@ namespace UsersDirectory.App.Managers
             var cityName = Console.ReadLine();
             Console.Clear();
 
-            User newUser;
-            List<User> usersToShow = new List<User>();
-
-            foreach (var user in _userService.Users)
-            {
-                if (cityName == user.City)
-                {
-                    newUser = new User(user.Id, user.Name, user.SurName, user.City);
-                    usersToShow.Add(newUser);
-                }
-            }
+            var usersToShow = _userService.Users.Where(p => p.City == cityName);
             _userService.GetUserByCity(usersToShow);
 
             return cityName;
