@@ -22,9 +22,23 @@ namespace UsersDirectory.Tests
 
             //Act
             userService.AddUser(user);
-            userService.Users.Add(user);
             //Assert 
             userService.Users.FirstOrDefault(i => i.Id == user.Id).Should().NotBeNull();
         }
+
+        [Fact]
+        public void RemoveUserTest()
+        {
+            //Arrange
+            User user = new User(31, "Name", "Surname", "City");
+            IService<User> userService = new UserService();
+
+            //Act
+            userService.RemoveUser(user);
+            //Assert 
+            userService.Users.FirstOrDefault(i => i.Id == user.Id).Should().BeNull();
+        }
+
+        
     }
 }
