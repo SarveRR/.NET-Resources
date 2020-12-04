@@ -39,6 +39,20 @@ namespace UsersDirectory.Tests
             userService.Users.FirstOrDefault(i => i.Id == user.Id).Should().BeNull();
         }
 
+        [Fact]
+        public void GetLastIdTest()
+        {
+            //Arrange
+            User user = new User(31, "Name", "Surname", "City");
+            IService<User> userService = new UserService();
+
+            //Act
+            var id = userService.GetLastId();
+            //Assert 
+            id.Should().BeOfType(typeof(int));
+            id.Should().Equals(user.Id);
+        }
+
         
     }
 }
