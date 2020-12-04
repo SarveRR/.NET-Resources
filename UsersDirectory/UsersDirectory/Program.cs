@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using UsersDirectory.App.Concrete;
 using UsersDirectory.App.Managers;
 using UsersDirectory.Domain.Entity;
@@ -7,7 +10,7 @@ namespace UsersDirectory
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
             UserService userService = new UserService();
