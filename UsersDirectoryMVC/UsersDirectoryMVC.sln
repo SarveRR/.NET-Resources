@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectoryMVC.Web", "UsersDirectoryMVC.Web\UsersDirectoryMVC.Web.csproj", "{68F74095-8A2D-4477-BC2E-20FD3C2FFE51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersDirectoryMVC.Web", "UsersDirectoryMVC.Web\UsersDirectoryMVC.Web.csproj", "{68F74095-8A2D-4477-BC2E-20FD3C2FFE51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{8E91D44D-A733-4C78-B00C-74F64CB9C4CD}"
 EndProject
@@ -15,23 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1EE81C56-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{85463772-F19F-4079-8C95-0C1A50D842F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectoryMVC.Application", "UsersDirectoryMVC.Application\UsersDirectoryMVC.Application.csproj", "{7544C5E0-7D21-4C0D-91DD-A916F4D36A2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersDirectoryMVC.Application", "UsersDirectoryMVC.Application\UsersDirectoryMVC.Application.csproj", "{7544C5E0-7D21-4C0D-91DD-A916F4D36A2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectoryMVC.Domain", "UsersDirectoryMVC.Domain\UsersDirectoryMVC.Domain.csproj", "{25ECBCDF-0F3F-45B9-AF1A-6A438E73D5E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersDirectoryMVC.Domain", "UsersDirectoryMVC.Domain\UsersDirectoryMVC.Domain.csproj", "{25ECBCDF-0F3F-45B9-AF1A-6A438E73D5E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectoryMVC.Infrastructure", "UsersDirectoryMVC.Infrastructure\UsersDirectoryMVC.Infrastructure.csproj", "{FDD246E7-E8EC-48BE-94D7-08BBF0774518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersDirectoryMVC.Infrastructure", "UsersDirectoryMVC.Infrastructure\UsersDirectoryMVC.Infrastructure.csproj", "{FDD246E7-E8EC-48BE-94D7-08BBF0774518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDirectoryMVC.Tests", "UsersDirectoryMVC.Tests\UsersDirectoryMVC.Tests.csproj", "{8A480D0B-C033-46D1-9CD3-74A6C96257D6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4752166D-8ED5-4B4C-AE09-58F3D281A84D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{04E0D1C1-58F1-4133-8BA2-271BADB5A7A4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{8E6A6ADC-A385-4BAE-8A03-F51CC1DCE2A3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{3B89DDAB-7568-4829-95C1-C89B8CB8FA55}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{7A1F023A-5A25-4348-ACC0-CC3264B7A685}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersDirectoryMVC.Tests", "UsersDirectoryMVC.Tests\UsersDirectoryMVC.Tests.csproj", "{8A480D0B-C033-46D1-9CD3-74A6C96257D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,11 +59,6 @@ Global
 		{25ECBCDF-0F3F-45B9-AF1A-6A438E73D5E2} = {E5042822-8332-442C-B3B5-74B55472792A}
 		{FDD246E7-E8EC-48BE-94D7-08BBF0774518} = {4C97F193-E11D-402E-8523-4FDFC7624D90}
 		{8A480D0B-C033-46D1-9CD3-74A6C96257D6} = {1EE81C56-0E0D-428F-9324-31CBBFB1D16D}
-		{4752166D-8ED5-4B4C-AE09-58F3D281A84D} = {8E91D44D-A733-4C78-B00C-74F64CB9C4CD}
-		{04E0D1C1-58F1-4133-8BA2-271BADB5A7A4} = {8E91D44D-A733-4C78-B00C-74F64CB9C4CD}
-		{8E6A6ADC-A385-4BAE-8A03-F51CC1DCE2A3} = {E5042822-8332-442C-B3B5-74B55472792A}
-		{3B89DDAB-7568-4829-95C1-C89B8CB8FA55} = {E5042822-8332-442C-B3B5-74B55472792A}
-		{7A1F023A-5A25-4348-ACC0-CC3264B7A685} = {4C97F193-E11D-402E-8523-4FDFC7624D90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C4CB357-19DD-4EFC-9E76-0A42A7F1E594}
