@@ -10,5 +10,6 @@ namespace UsersDirectoryMVC.Domain.Model
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public ICollection<AssignmentTag> AssignmentTags { get; set; }
     }
 }

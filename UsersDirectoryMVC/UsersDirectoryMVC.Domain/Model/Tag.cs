@@ -8,5 +8,7 @@ namespace UsersDirectoryMVC.Domain.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public ICollection<AssignmentTag> AssignmentTags { get; set; }
     }
 }
