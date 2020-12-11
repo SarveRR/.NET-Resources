@@ -11,5 +11,7 @@ namespace UsersDirectoryMVC.Domain.Model
         public string Surname { get; set; }
         public string City { get; set; }
         public int PositionId { get; set; }
+
+        public virtual Position Position { get; set; }
     }
 }
