@@ -10,7 +10,7 @@ namespace UsersDirectoryMVC.Domain.Model
         public string Name { get; set; }
         public string NIP { get; set; }
 
-        public CustomerContactInformation CustomerContact { get; set; }
+        public CustomerContactInformation CustomerContactInformation { get; set; }
         public virtual ICollection<ContactDetail> ContactDetails { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
     }

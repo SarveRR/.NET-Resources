@@ -28,6 +28,23 @@ namespace UsersDirectoryMVC.Infrastructure
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Customer>()
+                .HasOne(a => a.CustomerContactInformation).WithOne(b => b.Customer)
+                .HasForeignKey<CustomerContactInformation>(e => e.CustomerRef);
+
+            builder.Entity<AssignmentTag>()
+                .HasKey(it => new { it.AssignmentId, it.TagId });
+
+            builder.Entity<AssignmentTag>()
+                .HasOne<Assignment>(it => it.Assignment)
+                .WithMany(a => a.AssignmentTags)
+                .HasForeignKey(it => it.AssignmentId);
+
+            builder.Entity<AssignmentTag>()
+                .HasOne<Tag>(it => it.Tag)
+                .WithMany(a => a.AssignmentTags)
+                .HasForeignKey(it => it.TagId);
         }
     }
 }
