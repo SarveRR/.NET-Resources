@@ -12,5 +12,6 @@ namespace UsersDirectoryMVC.Domain.Model
 
         public CustomerContactInformation CustomerContact { get; set; }
         public virtual ICollection<ContactDetail> ContactDetails { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }
