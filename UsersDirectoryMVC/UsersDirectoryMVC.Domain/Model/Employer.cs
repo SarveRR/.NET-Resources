@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UsersDirectoryMVC.Domain.Model
 {
-    class Employer
+    public class Employer
     {
         public int Id { get; set; }
         public string Name { get; set; }
