@@ -17,5 +17,7 @@ namespace UsersDirectoryMVC.Domain.Model
         public string Country { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
+
+        public CustomerContactInformation CustomerContact { get; set; }
     }
 }
