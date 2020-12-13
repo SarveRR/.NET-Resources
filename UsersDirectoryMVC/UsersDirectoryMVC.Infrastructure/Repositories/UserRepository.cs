@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersDirectoryMVC.Domain.Model;
 
 namespace UsersDirectoryMVC.Infrastructure.Repositories
 {
@@ -11,5 +12,6 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         {
             _context = context;
         }
+
     }
 }

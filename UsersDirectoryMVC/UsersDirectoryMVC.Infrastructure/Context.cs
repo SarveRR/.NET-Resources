@@ -19,7 +19,7 @@ namespace UsersDirectoryMVC.Infrastructure
         public DbSet<Employer> Employers { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
         public Context(DbContextOptions options) : base(options)
         {
