@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UsersDirectoryMVC.Domain.Interfaces;
 using UsersDirectoryMVC.Domain.Model;
 
 namespace UsersDirectoryMVC.Infrastructure.Repositories
 {
-    public class AssignmentRepository
+    public class AssignmentRepository : IAssignmentRepository
     {
         private readonly Context _context;
 
