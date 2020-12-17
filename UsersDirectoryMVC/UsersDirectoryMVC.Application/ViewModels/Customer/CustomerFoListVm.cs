@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UsersDirectoryMVC.Application.ViewModels.Customer
 {
-    public class CustomerFoListVm
+    public class CustomerForListVm
     {
         public int Id { get; set; }
         public string Name { get; set; }
