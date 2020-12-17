@@ -12,8 +12,8 @@ namespace UsersDirectoryMVC.Domain.Interfaces
 
         int AddCustomer(Customer customer);
 
-        Customer GetCustomerById(int customerId);
+        Customer GetCustomer(int customerId);
 
-        IQueryable<Customer> GetAllCustomers();
+        IQueryable<Customer> GetAllActiveCustomers();
     }
 }

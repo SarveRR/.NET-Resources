@@ -33,13 +33,13 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return customer.Id;
         }
 
-        public Customer GetCustomerById(int customerId)
+        public Customer GetCustomer(int customerId)
         {
             var customer = _context.Customers.FirstOrDefault(a => a.Id == customerId);
             return customer;
         }
 
-        public IQueryable<Customer> GetAllCustomers()
+        public IQueryable<Customer> GetAllActiveCustomers()
         {
             var customers = _context.Customers;
             return customers;

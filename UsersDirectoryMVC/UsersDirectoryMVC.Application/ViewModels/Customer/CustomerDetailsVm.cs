@@ -12,7 +12,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
         public string CEOFullName { get; set; }
         public string FirstLineOfContactInformation { get; set; }
         public List<AddressForListVm> Addresses { get; set; }
-        public List<ContactDetailListVm> Email { get; set; }
-        public List<ContactDetailListVm> PhoneNumber { get; set; }
+        public List<ContactDetailListVm> Emails { get; set; }
+        public List<ContactDetailListVm> PhoneNumbers { get; set; }
     }
 }

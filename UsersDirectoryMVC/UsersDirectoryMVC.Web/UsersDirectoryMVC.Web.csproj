@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UsersDirectoryMVC.Application\UsersDirectoryMVC.Application.csproj" />
     <ProjectReference Include="..\UsersDirectoryMVC.Infrastructure\UsersDirectoryMVC.Infrastructure.csproj" />
   </ItemGroup>
 

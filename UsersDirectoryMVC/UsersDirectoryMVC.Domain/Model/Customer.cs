@@ -11,6 +11,7 @@ namespace UsersDirectoryMVC.Domain.Model
         public string NIP { get; set; }
         public string CEOFisrtName { get; set; }
         public string CEOLastName { get; set; }
+        public bool IsActive { get; set; }
 
         public CustomerContactInformation CustomerContactInformation { get; set; }
         public virtual ICollection<ContactDetail> ContactDetails { get; set; }
