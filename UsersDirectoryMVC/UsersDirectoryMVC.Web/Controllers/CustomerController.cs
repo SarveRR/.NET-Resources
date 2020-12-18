@@ -15,41 +15,42 @@ namespace UsersDirectoryMVC.Web.Controllers
         {
             _customerService = customerService;
         }
+
         public IActionResult Index()
         {
             var model = _customerService.GetAllActiveCustomersForList();
-            return View();
+            return View(model);
         }
 
-        [HttpGet]
-        public IActionResult AddCustomer()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult AddCustomer()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult AddCustomer(NewCustomerVm model)
-        {
-            var id = _customerService.AddCustomer(model);
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult AddCustomer(NewCustomerVm model)
+        //{
+        //    var id = _customerService.AddCustomer(model);
+        //    return View();
+        //}
 
-        [HttpGet]
-        public IActionResult AddNewAddressForClient(int customerId)
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult AddNewAddressForClient(int customerId)
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult AddNewAddressForClient(AddressForListVm model)
-        {
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult AddNewAddressForClient(AddressForListVm model)
+        //{
+        //    return View();
+        //}
 
-        public IActionResult ViewCustomer(int customerId)
-        {
-            var customerModel = _customerService.GetCustomerDetails(customerId);
-            return View(customerModel);
-        }
+        //public IActionResult ViewCustomer(int customerId)
+        //{
+        //    var customerModel = _customerService.GetCustomerDetails(customerId);
+        //    return View(customerModel);
+        //}
     }
 }
