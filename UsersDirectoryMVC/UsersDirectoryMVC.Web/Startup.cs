@@ -36,6 +36,7 @@ namespace UsersDirectoryMVC.Web
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<Context>();
             services.AddApplication();
+            services.AddInfrastructure();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
