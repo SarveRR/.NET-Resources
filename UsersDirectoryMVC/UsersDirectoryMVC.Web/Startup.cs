@@ -12,6 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UsersDirectoryMVC.Infrastructure;
+using UsersDirectoryMVC.Domain.Interfaces;
+using UsersDirectoryMVC.Infrastructure.Repositories;
+using UsersDirectoryMVC.Application;
 
 namespace UsersDirectoryMVC.Web
 {
@@ -32,6 +35,7 @@ namespace UsersDirectoryMVC.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<Context>();
+            services.AddApplication();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

@@ -15,9 +15,10 @@ namespace UsersDirectoryMVC.Application.Services
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        public CustomerService()
+        public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
         {
-
+            _customerRepository = customerRepository;
+            _mapper = mapper;
         }
         public int AddCustomer(NewCustomerVm customer)
         {
