@@ -25,7 +25,7 @@ namespace UsersDirectoryMVC.Application.Services
             throw new NotImplementedException();
         }
 
-        public ListCustomerForListVm GetAllCustomersForList()
+        public ListCustomerForListVm GetAllActiveCustomersForList()
         {
             var customers = _customerRepository.GetAllActiveCustomers()
                 .ProjectTo<CustomerForListVm>(_mapper.ConfigurationProvider).ToList();

@@ -17,6 +17,5 @@ namespace UsersDirectoryMVC.Infrastructure
             services.AddTransient<IEmployerRepository, EmployerRepository>();
             return services;
         }
-
     }
 }

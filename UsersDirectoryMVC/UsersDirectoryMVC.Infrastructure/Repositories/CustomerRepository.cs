@@ -41,7 +41,7 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
 
         public IQueryable<Customer> GetAllActiveCustomers()
         {
-            var customers = _context.Customers;
+            var customers = _context.Customers.Where(a => a.IsActive);
             return customers;
         }
     }
