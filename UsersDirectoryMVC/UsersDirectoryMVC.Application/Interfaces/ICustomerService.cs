@@ -7,7 +7,7 @@ namespace UsersDirectoryMVC.Application.Interfaces
 {
     public interface ICustomerService
     {
-        ListCustomerForListVm GetAllActiveCustomersForList();
+        ListCustomerForListVm GetAllActiveCustomersForList(int pageSize, int PageNumber, string searchString);
         int AddCustomer(NewCustomerVm customer);
         CustomerDetailsVm GetCustomerDetails(int customerId);
     }

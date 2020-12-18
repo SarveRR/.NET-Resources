@@ -16,41 +16,49 @@ namespace UsersDirectoryMVC.Web.Controllers
             _customerService = customerService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            var model = _customerService.GetAllActiveCustomersForList();
+            var model = _customerService.GetAllActiveCustomersForList(2, 1, "");
             return View(model);
         }
 
-        //[HttpGet]
-        //public IActionResult AddCustomer()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Index(int pageSize, int pageNumber, string searchString)
+        {
+            var model = _customerService.GetAllActiveCustomersForList(pageSize, pageNumber, searchString);
+            return View(model);
+        }
 
-        //[HttpPost]
-        //public IActionResult AddCustomer(NewCustomerVm model)
-        //{
-        //    var id = _customerService.AddCustomer(model);
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult AddCustomer()
+        {
+            return View();
+        }
 
-        //[HttpGet]
-        //public IActionResult AddNewAddressForClient(int customerId)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult AddCustomer(NewCustomerVm model)
+        {
+            var id = _customerService.AddCustomer(model);
+            return View();
+        }
 
-        //[HttpPost]
-        //public IActionResult AddNewAddressForClient(AddressForListVm model)
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult AddNewAddressForClient(int customerId)
+        {
+            return View();
+        }
 
-        //public IActionResult ViewCustomer(int customerId)
-        //{
-        //    var customerModel = _customerService.GetCustomerDetails(customerId);
-        //    return View(customerModel);
-        //}
+        [HttpPost]
+        public IActionResult AddNewAddressForClient(AddressForListVm model)
+        {
+            return View();
+        }
+
+        public IActionResult ViewCustomer(int customerId)
+        {
+            var customerModel = _customerService.GetCustomerDetails(customerId);
+            return View(customerModel);
+        }
     }
 }
