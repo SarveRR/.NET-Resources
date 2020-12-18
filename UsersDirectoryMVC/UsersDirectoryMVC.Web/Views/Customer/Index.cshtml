@@ -71,5 +71,18 @@
                 }
             </tr>
         </table>
+        <input type="hidden" name="pageNumber" id="pageNumber" />
+        <input type="hidden" name="pageSize" id="pageSize" value="2" />
     </div>
 </form>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function PagerClick(index)
+        {
+            document.getElementById("pageNumber").value = index;
+            document.forms[0].submit();
+        }
+    </script>
+}
