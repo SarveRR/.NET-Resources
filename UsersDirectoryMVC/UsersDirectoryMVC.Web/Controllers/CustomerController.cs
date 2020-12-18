@@ -19,14 +19,22 @@ namespace UsersDirectoryMVC.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _customerService.GetAllActiveCustomersForList(2, 1, "");
+            var model = _customerService.GetAllActiveCustomersForList(3, 1, "");
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Index(int pageSize, int pageNumber, string searchString)
+        public IActionResult Index(int pageSize, int? pageNumber, string searchString)
         {
-            var model = _customerService.GetAllActiveCustomersForList(pageSize, pageNumber, searchString);
+            if(!pageNumber.HasValue)
+            {
+                pageNumber = 1;
+            }
+            if (searchString is null)
+            {
+                searchString = String.Empty;
+            }
+            var model = _customerService.GetAllActiveCustomersForList(pageSize, pageNumber.Value, searchString);
             return View(model);
         }
 

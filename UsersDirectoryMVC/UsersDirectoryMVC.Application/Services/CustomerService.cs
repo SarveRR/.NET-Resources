@@ -25,17 +25,17 @@ namespace UsersDirectoryMVC.Application.Services
             throw new NotImplementedException();
         }
 
-        public ListCustomerForListVm GetAllActiveCustomersForList(int pageSize, int PageNumber, string searchString)
+        public ListCustomerForListVm GetAllActiveCustomersForList(int pageSize, int pageNumber, string searchString)
         {
             var customers = _customerRepository.GetAllActiveCustomers().Where(p => p.Name.StartsWith(searchString))
                 .ProjectTo<CustomerForListVm>(_mapper.ConfigurationProvider).ToList();
-            var customersToShow = customers.Skip(pageSize * (PageNumber - 1)).Take(pageSize).ToList();
+            var customersToShow = customers.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
             var customerList = new ListCustomerForListVm()
             {
-                Customers = customersToShow,
                 PageSize = pageSize,
-                CurrentPage = PageNumber,
+                CurrentPage = pageNumber,
                 SearchString = searchString,
+                Customers = customersToShow,
                 Count = customers.Count
             };
             return customerList;
