@@ -52,6 +52,20 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpGet]
+        public IActionResult EditCustomer(int id)
+        {
+            var customer = _customerService.GetCustomerForEdit(id);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public IActionResult EditCustomer(NewCustomerVm model)
+        {
+            var id = _customerService.EditCustomer(model);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         public IActionResult AddNewAddressForClient(int customerId)
         {
             return View();
