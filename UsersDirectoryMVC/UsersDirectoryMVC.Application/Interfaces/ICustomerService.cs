@@ -11,5 +11,6 @@ namespace UsersDirectoryMVC.Application.Interfaces
         int AddCustomer(NewCustomerVm customer);
         CustomerDetailsVm GetCustomerDetails(int customerId);
         NewCustomerVm GetCustomerForEdit(int id);
+        void UpdateCustomer(NewCustomerVm model);
     }
 }

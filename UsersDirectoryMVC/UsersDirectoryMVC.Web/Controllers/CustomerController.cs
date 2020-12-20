@@ -64,7 +64,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditCustomer(NewCustomerVm model)
         {
-            var id = _customerService.AddCustomer(model);
+            _customerService.UpdateCustomer(model);
             return RedirectToAction("Index");
         }
 

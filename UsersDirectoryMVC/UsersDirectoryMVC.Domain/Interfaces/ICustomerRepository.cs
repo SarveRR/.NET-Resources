@@ -15,5 +15,6 @@ namespace UsersDirectoryMVC.Domain.Interfaces
         Customer GetCustomer(int customerId);
 
         IQueryable<Customer> GetAllActiveCustomers();
+        void UpdateCustomer(Customer customer);
     }
 }
