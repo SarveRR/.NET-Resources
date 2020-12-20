@@ -48,7 +48,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         public IActionResult AddCustomer(NewCustomerVm model)
         {
             var id = _customerService.AddCustomer(model);
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

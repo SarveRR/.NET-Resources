@@ -15,6 +15,7 @@ using UsersDirectoryMVC.Infrastructure;
 using UsersDirectoryMVC.Domain.Interfaces;
 using UsersDirectoryMVC.Infrastructure.Repositories;
 using UsersDirectoryMVC.Application;
+using FluentValidation.AspNetCore;
 
 namespace UsersDirectoryMVC.Web
 {
@@ -37,7 +38,7 @@ namespace UsersDirectoryMVC.Web
                 .AddEntityFrameworkStores<Context>();
             services.AddApplication();
             services.AddInfrastructure();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddRazorPages();
         }
 

@@ -28,6 +28,7 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
 
         public int AddCustomer(Customer customer)
         {
+            customer.IsActive = true;
             _context.Customers.Add(customer);
             _context.SaveChanges();
             return customer.Id;
