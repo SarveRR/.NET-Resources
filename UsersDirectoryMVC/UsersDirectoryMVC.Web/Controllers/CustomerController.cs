@@ -41,7 +41,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         [HttpGet]
         public IActionResult AddCustomer()
         {
-            return View();
+            return View(new NewCustomerVm());
         }
 
         [HttpPost]
