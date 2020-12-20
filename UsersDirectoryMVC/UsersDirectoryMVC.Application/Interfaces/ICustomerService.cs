@@ -12,5 +12,6 @@ namespace UsersDirectoryMVC.Application.Interfaces
         CustomerDetailsVm GetCustomerDetails(int customerId);
         NewCustomerVm GetCustomerForEdit(int id);
         void UpdateCustomer(NewCustomerVm model);
+        void DeleteCustomer(int id);
     }
 }

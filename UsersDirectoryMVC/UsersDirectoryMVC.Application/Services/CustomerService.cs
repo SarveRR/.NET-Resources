@@ -28,6 +28,11 @@ namespace UsersDirectoryMVC.Application.Services
             return id;
         }
 
+        public void DeleteCustomer(int id)
+        {
+            _customerRepository.DeleteCustomer(id);
+        }
+
         public ListCustomerForListVm GetAllActiveCustomersForList(int pageSize, int pageNumber, string searchString)
         {
             var customers = _customerRepository.GetAllActiveCustomers().Where(p => p.Name.StartsWith(searchString))
