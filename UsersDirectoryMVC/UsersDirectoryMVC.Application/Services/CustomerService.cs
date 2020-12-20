@@ -65,5 +65,12 @@ namespace UsersDirectoryMVC.Application.Services
             }
             return customerVm;
         }
+
+        public NewCustomerVm GetCustomerForEdit(int id)
+        {
+            var customer = _customerRepository.GetCustomer(id);
+            var customerVm = _mapper.Map<NewCustomerVm>(customer);
+            return customerVm;
+        }
     }
 }

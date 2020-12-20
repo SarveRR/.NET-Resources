@@ -61,7 +61,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         [HttpPost]
         public IActionResult EditCustomer(NewCustomerVm model)
         {
-            var id = _customerService.EditCustomer(model);
+            var id = _customerService.AddCustomer(model);
             return RedirectToAction("Index");
         }
 

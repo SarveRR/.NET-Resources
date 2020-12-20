@@ -10,5 +10,6 @@ namespace UsersDirectoryMVC.Application.Interfaces
         ListCustomerForListVm GetAllActiveCustomersForList(int pageSize, int pageNumber, string searchString);
         int AddCustomer(NewCustomerVm customer);
         CustomerDetailsVm GetCustomerDetails(int customerId);
+        NewCustomerVm GetCustomerForEdit(int id);
     }
 }

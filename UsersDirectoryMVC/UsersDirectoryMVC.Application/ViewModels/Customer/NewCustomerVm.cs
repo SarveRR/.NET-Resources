@@ -15,7 +15,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<NewCustomerVm, UsersDirectoryMVC.Domain.Model.Customer>();
+            profile.CreateMap<NewCustomerVm, UsersDirectoryMVC.Domain.Model.Customer>().ReverseMap();
         }
     }
 
