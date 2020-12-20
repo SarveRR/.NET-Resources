@@ -16,6 +16,8 @@ using UsersDirectoryMVC.Domain.Interfaces;
 using UsersDirectoryMVC.Infrastructure.Repositories;
 using UsersDirectoryMVC.Application;
 using FluentValidation.AspNetCore;
+using FluentValidation;
+using UsersDirectoryMVC.Application.ViewModels.Customer;
 
 namespace UsersDirectoryMVC.Web
 {
@@ -38,7 +40,8 @@ namespace UsersDirectoryMVC.Web
                 .AddEntityFrameworkStores<Context>();
             services.AddApplication();
             services.AddInfrastructure();
-            services.AddControllersWithViews().AddFluentValidation();
+            services.AddControllersWithViews()
+                .AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
         }
 

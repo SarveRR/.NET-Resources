@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,17 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
         public void Mapping(Profile profile)
         {
             profile.CreateMap<NewCustomerVm, UsersDirectoryMVC.Domain.Model.Customer>();
+        }
+    }
+
+    public class NewCustomerValidation : AbstractValidator<NewCustomerVm>
+    {
+        public NewCustomerValidation()
+        {
+            RuleFor(x => x.Id).NotNull();
+            RuleFor(x => x.NIP).Length(10);
+            RuleFor(x => x.NIP).NotNull();
+            RuleFor(x => x.Name).MaximumLength(255);
         }
     }
 }
