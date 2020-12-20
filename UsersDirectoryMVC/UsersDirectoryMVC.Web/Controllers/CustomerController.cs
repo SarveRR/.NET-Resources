@@ -69,6 +69,13 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpGet]
+        public IActionResult DeleteCustomer(int id)
+        {
+            _customerService.DeleteCustomer(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         public IActionResult AddNewAddressForClient(int customerId)
         {
             return View();
