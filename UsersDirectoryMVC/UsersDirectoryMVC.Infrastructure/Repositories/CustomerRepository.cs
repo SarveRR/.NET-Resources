@@ -45,5 +45,13 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             var customers = _context.Customers.Where(a => a.IsActive);
             return customers;
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            _context.Attach(customer);
+            _context.Entry(customer).Property("Name").IsModified = true;
+            _context.Entry(customer).Property("NIP").IsModified = true;
+            _context.SaveChanges();
+        }
     }
 }
