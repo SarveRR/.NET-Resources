@@ -7,6 +7,7 @@ using System.Text;
 using UsersDirectoryMVC.Application.Interfaces;
 using UsersDirectoryMVC.Application.ViewModels.Customer;
 using UsersDirectoryMVC.Domain.Interfaces;
+using UsersDirectoryMVC.Domain.Model;
 
 namespace UsersDirectoryMVC.Application.Services
 {
@@ -22,7 +23,9 @@ namespace UsersDirectoryMVC.Application.Services
         }
         public int AddCustomer(NewCustomerVm customer)
         {
-            throw new NotImplementedException();
+            var cust = _mapper.Map<Customer>(customer);
+            var id = _customerRepository.AddCustomer(cust);
+            return id;
         }
 
         public ListCustomerForListVm GetAllActiveCustomersForList(int pageSize, int pageNumber, string searchString)
