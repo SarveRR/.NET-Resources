@@ -24,6 +24,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(int pageSize, int? pageNumber, string searchString)
         {
             if(!pageNumber.HasValue)
@@ -45,6 +46,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddCustomer(NewCustomerVm model)
         {
             var id = _customerService.AddCustomer(model);
@@ -59,6 +61,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult EditCustomer(NewCustomerVm model)
         {
             var id = _customerService.AddCustomer(model);
@@ -72,6 +75,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddNewAddressForClient(AddressForListVm model)
         {
             return View();
