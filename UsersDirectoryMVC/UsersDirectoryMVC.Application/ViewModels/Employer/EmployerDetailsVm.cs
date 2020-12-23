@@ -14,7 +14,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Employer
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<EmployerDetailsVm, UsersDirectoryMVC.Domain.Model.Employer>();
+            profile.CreateMap<UsersDirectoryMVC.Domain.Model.Employer, EmployerDetailsVm>();
         }
     }
 }
