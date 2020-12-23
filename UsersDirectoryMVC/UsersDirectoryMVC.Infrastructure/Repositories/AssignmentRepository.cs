@@ -33,13 +33,13 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return assignment.Id;
         }
 
-        public Assignment GetAssignmentById(int assignmentId)
+        public Assignment GetAssignment(int assignmentId)
         {
             var assignment = _context.Assignments.FirstOrDefault(a => a.Id == assignmentId);
             return assignment;
         }
 
-        public IQueryable<Assignment> GetAllEmployers()
+        public IQueryable<Assignment> GetAllActiveAssignments()
         {
             var assignments = _context.Assignments;
             return assignments;

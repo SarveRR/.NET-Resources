@@ -12,9 +12,9 @@ namespace UsersDirectoryMVC.Domain.Interfaces
 
         int AddAssignment(Assignment assignment);
 
-        Assignment GetAssignmentById(int assignmentId);
+        Assignment GetAssignment(int assignmentId);
 
-        IQueryable<Assignment> GetAllEmployers();
+        IQueryable<Assignment> GetAllActiveAssignments();
 
         void UpdateAssignment(Assignment assignment);
     }
