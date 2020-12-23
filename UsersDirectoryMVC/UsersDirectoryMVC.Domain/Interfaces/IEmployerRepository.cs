@@ -12,8 +12,10 @@ namespace UsersDirectoryMVC.Domain.Interfaces
 
         int AddEmployer(Employer employer);
 
-        Employer GetEmployerById(int employerId);
+        Employer GetEmployer(int employerId);
 
-        IQueryable<Employer> GetAllEmployers();
+        IQueryable<Employer> GetAllActiveEmployers();
+
+        void UpdateEmployer(Employer employer);
     }
 }

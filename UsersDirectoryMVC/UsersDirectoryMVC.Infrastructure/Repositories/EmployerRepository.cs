@@ -33,16 +33,24 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return employer.Id;
         }
 
-        public Employer GetEmployerById(int employerId)
+        public Employer GetEmployer(int employerId)
         {
             var employer = _context.Employers.FirstOrDefault(a => a.Id == employerId);
             return employer;
         }
 
-        public IQueryable<Employer> GetAllEmployers()
+        public IQueryable<Employer> GetAllActiveEmployers()
         {
             var employers = _context.Employers;
             return employers;
+        }
+
+        public void UpdateEmployer(Employer employer)
+        {
+            _context.Attach(employer);
+            _context.Entry(employer).Property("Name").IsModified = true;
+            _context.Entry(employer).Property("NIP").IsModified = true;
+            _context.SaveChanges();
         }
     }
 }

@@ -6,7 +6,7 @@ using UsersDirectoryMVC.Application.Mapping;
 
 namespace UsersDirectoryMVC.Application.ViewModels.Employer
 {
-    public class EmployerFoListVm : IMapFrom<UsersDirectoryMVC.Domain.Model.Employer>
+    public class EmployerForListVm : IMapFrom<UsersDirectoryMVC.Domain.Model.Employer>
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,7 +14,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Employer
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<UsersDirectoryMVC.Domain.Model.Employer, EmployerFoListVm>();
+            profile.CreateMap<UsersDirectoryMVC.Domain.Model.Employer, EmployerForListVm>();
         }
     }
 }
