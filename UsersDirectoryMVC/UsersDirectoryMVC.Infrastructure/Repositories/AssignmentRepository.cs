@@ -44,5 +44,13 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             var assignments = _context.Assignments;
             return assignments;
         }
+
+        public void UpdateAssignment(Assignment assignment)
+        {
+            _context.Attach(assignment);
+            _context.Entry(assignment).Property("Name").IsModified = true;
+            _context.Entry(assignment).Property("Description").IsModified = true;
+            _context.SaveChanges();
+        }
     }
 }

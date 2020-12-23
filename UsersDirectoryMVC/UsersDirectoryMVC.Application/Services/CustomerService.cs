@@ -58,16 +58,16 @@ namespace UsersDirectoryMVC.Application.Services
             customerVm.PhoneNumbers = new List<ContactDetailListVm>();
             customerVm.Emails = new List<ContactDetailListVm>();
 
-            foreach (var address in customer.Addresses)
-            {
-                var add = new AddressForListVm
-                {
-                    Id = address.Id,
-                    Country = address.Country,
-                    City = address.City
-                };
-                customerVm.Addresses.Add(add);
-            }
+            //foreach (var address in customer.Addresses)
+            //{
+            //    var add = new AddressForListVm
+            //    {
+            //        Id = address.Id,
+            //        Country = address.Country,
+            //        City = address.City
+            //    };
+            //    customerVm.Addresses.Add(add);
+            //}
             return customerVm;
         }
 

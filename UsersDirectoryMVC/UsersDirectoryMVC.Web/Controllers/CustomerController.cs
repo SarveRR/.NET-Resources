@@ -88,9 +88,9 @@ namespace UsersDirectoryMVC.Web.Controllers
             return View();
         }
 
-        public IActionResult ViewCustomer(int customerId)
+        public IActionResult ViewCustomer(int id)
         {
-            var customerModel = _customerService.GetCustomerDetails(customerId);
+            var customerModel = _customerService.GetCustomerDetails(id);
             return View(customerModel);
         }
     }

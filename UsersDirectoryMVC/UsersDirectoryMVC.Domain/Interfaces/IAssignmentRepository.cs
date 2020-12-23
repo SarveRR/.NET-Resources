@@ -15,5 +15,7 @@ namespace UsersDirectoryMVC.Domain.Interfaces
         Assignment GetAssignmentById(int assignmentId);
 
         IQueryable<Assignment> GetAllEmployers();
+
+        void UpdateAssignment(Assignment assignment);
     }
 }
