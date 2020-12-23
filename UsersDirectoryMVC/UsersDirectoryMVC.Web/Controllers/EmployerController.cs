@@ -75,6 +75,7 @@ namespace UsersDirectoryMVC.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult ViewEmployer(int id)
         {
             var employerModel = _employerService.GetEmployerDetails(id);
