@@ -12,6 +12,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.AppUser
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string City { get; set; }
+        public int PositionId { get; set; }
 
         public void Mapping(Profile profile)
         {

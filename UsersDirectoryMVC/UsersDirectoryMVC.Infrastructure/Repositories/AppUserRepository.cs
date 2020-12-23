@@ -27,6 +27,7 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
 
         public int AddAppUser(AppUser appUser)
         {
+            appUser.PositionId = 1;
             _context.AppUsers.Add(appUser);
             _context.SaveChanges();
             return appUser.Id;

@@ -46,9 +46,9 @@ namespace UsersDirectoryMVC.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddAppUser(NewAppUserVm model)
+        public IActionResult AddAppUser(NewAppUserVm appUser)
         {
-            var id = _appUserService.AddAppUser(model);
+            var id = _appUserService.AddAppUser(appUser);
             return RedirectToAction("Index");
         }
 
