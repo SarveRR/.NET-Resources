@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersDirectoryMVC.Application.ViewModels.Assignment;
 
 namespace UsersDirectoryMVC.Application.Interfaces
 {
