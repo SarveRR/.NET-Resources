@@ -7,7 +7,7 @@ namespace UsersDirectoryMVC.Application.Interfaces
 {
     public interface IEmployerService
     {
-        ListEmployerForListVm GetAllActiveEmplyersForList(int pageSize, int pageNumber, string searchString);
+        ListEmployerForListVm GetAllActiveEmployersForList(int pageSize, int pageNumber, string searchString);
         int AddEmployer(NewEmployerVm employer);
         EmployerDetailsVm GetEmployerDetails(int id);
         NewEmployerVm GetEmployerForEdit(int id);

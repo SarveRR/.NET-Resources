@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
+using UsersDirectoryMVC.Application.ViewModels.Employer;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {

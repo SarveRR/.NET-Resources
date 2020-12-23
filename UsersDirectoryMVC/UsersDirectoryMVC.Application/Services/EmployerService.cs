@@ -34,7 +34,7 @@ namespace UsersDirectoryMVC.Application.Services
             _employerRepository.DeleteEmployer(id);
         }
 
-        public ListEmployerForListVm GetAllActiveEmplyersForList(int pageSize, int pageNumber, string searchString)
+        public ListEmployerForListVm GetAllActiveEmployersForList(int pageSize, int pageNumber, string searchString)
         {
             var employers = _employerRepository.GetAllActiveEmployers().Where(p => p.Name.StartsWith(searchString))
                 .ProjectTo<EmployerForListVm>(_mapper.ConfigurationProvider).ToList();
