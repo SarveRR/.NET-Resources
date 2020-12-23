@@ -14,12 +14,12 @@ namespace UsersDirectoryMVC.Domain.Interfaces
 
         IQueryable<AppUser> GetAppUserByPositionId(int positionId);
 
-        AppUser GetAppUserById(int appUserId);
+        AppUser GetAppUser(int appUserId);
 
-        IQueryable<Tag> GetAllTags();
-
-        IQueryable<AppUser> GetAllAppUsers();
+        IQueryable<AppUser> GetAllActiveAppUsers();
 
         IQueryable<Position> GetAllPositions();
+
+        void UpdateAppUser(AppUser appUser);
     }
 }

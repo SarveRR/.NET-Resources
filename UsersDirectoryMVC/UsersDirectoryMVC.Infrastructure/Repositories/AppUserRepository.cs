@@ -38,7 +38,7 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return appUsers;
         }
 
-        public AppUser GetAppUserById(int appUserId)
+        public AppUser GetAppUser(int appUserId)
         {
             var appUser = _context.AppUsers.FirstOrDefault(a => a.Id == appUserId);
             return appUser;
@@ -50,7 +50,7 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return tags;
         }
 
-        public IQueryable<AppUser> GetAllAppUsers()
+        public IQueryable<AppUser> GetAllActiveAppUsers()
         {
             var appUsers = _context.AppUsers;
             return appUsers;
@@ -60,6 +60,15 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         {
             var positions = _context.Positions;
             return positions;
+        }
+
+        public void UpdateAppUser(AppUser appUser)
+        {
+            _context.Attach(appUser);
+            _context.Entry(appUser).Property("FirstName").IsModified = true;
+            _context.Entry(appUser).Property("LastName").IsModified = true;
+            _context.Entry(appUser).Property("City").IsModified = true;
+            _context.SaveChanges();
         }
     }
 }
