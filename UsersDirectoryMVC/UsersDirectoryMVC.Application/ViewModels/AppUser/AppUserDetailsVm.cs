@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UsersDirectoryMVC.Application.Mapping;
+using UsersDirectoryMVC.Domain.Model;
 
 namespace UsersDirectoryMVC.Application.ViewModels.AppUser
 {
@@ -13,6 +14,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.AppUser
         public string LastName { get; set; }
         public string City { get; set; }
         public int PositionId { get; set; }
+        public string Position { get; set; }
 
         public void Mapping(Profile profile)
         {
