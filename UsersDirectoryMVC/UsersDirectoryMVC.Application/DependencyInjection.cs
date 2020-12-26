@@ -22,6 +22,7 @@ namespace UsersDirectoryMVC.Application
             services.AddTransient<IEmployerService, EmployerService>();
             services.AddTransient<IAssignmentService, AssignmentService>();
             services.AddTransient<IAppUserService, AppUserService>();
+            services.AddTransient<IAdminPanelService, AdminPanelService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
  
             services.AddTransient<IValidator<NewCustomerVm>, NewCustomerValidation>();
