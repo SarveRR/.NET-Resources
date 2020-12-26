@@ -11,8 +11,10 @@ namespace UsersDirectoryMVC.Application.Interfaces
     public interface IAdminPanelService
     {
         ListUsersForListVm GetAllUsers();
+        IQueryable<RoleVm> GetAllRoles();
         Task<IdentityResult> DeleteUser(string id);
         UserDetailVm GetUserDetails(string id);
+        UserDetailVm GetUserRoles(string id);
         Task<IdentityResult> ChangeUserRolesAsync(string idUser, IEnumerable<string> role);
         void RemoveRoleFromUser(string id, string role);
         IQueryable<string> GetRolesByUser(string id);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
+using UsersDirectoryMVC.Application.ViewModels.AdminPanel;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {
@@ -23,17 +24,17 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult ManageRoles()
+        public IActionResult ManageRoles(string id)
         {
-            var model = _adminPanelService.GetAllUsers();
+            var model = _adminPanelService.GetUserRoles(id);
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult ManageRoles(int role)
+        public async Task<IActionResult> ManageRoles(UserDetailVm user)
         {
-            var model = _adminPanelService.GetAllUsers();
-            return View(model);
+            await _adminPanelService.ChangeUserRolesAsync(user.Id, user.UserRoles);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
