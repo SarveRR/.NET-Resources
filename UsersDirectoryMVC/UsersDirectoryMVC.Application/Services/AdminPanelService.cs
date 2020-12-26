@@ -16,11 +16,16 @@ namespace UsersDirectoryMVC.Application.Services
         private readonly UserManager<IdentityUser> _userManager;
         //private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
-        public AdminPanelService(UserManager<IdentityUser> userManager, IMapper mapper)
+        public AdminPanelService(UserManager<IdentityUser> userManager,  IMapper mapper)
         {
             _userManager = userManager;
-            //_roleManager = roleManager;
+           // _roleManager = roleManager;
             _mapper = mapper;
+        }
+
+        public Task<IdentityResult> ChangeUserRolesAsync(string idUser, IEnumerable<string> role)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IdentityResult> DeleteUser(string id)
@@ -43,6 +48,26 @@ namespace UsersDirectoryMVC.Application.Services
                 Count = users.Count
             };
             return usersVm;
+        }
+
+        public IQueryable<string> GetRolesByUser(string id)
+        {
+            var user = _userManager.FindByIdAsync(id).Result;
+            var roles = _userManager.GetRolesAsync(user).Result.AsQueryable();
+            return roles;
+        }
+
+        public UserDetailVm GetUserDetails(string id)
+        {
+            var user = _userManager.FindByIdAsync(id).Result;
+            var userVm = _mapper.Map<UserDetailVm>(user);
+            userVm.UserRoles = GetRolesByUser(user.Id).ToList();
+            return userVm;
+        }
+
+        public void RemoveRoleFromUser(string id, string role)
+        {
+            throw new NotImplementedException();
         }
     }
 }

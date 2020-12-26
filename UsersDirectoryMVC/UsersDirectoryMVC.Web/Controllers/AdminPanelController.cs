@@ -39,7 +39,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         [HttpGet]
         public IActionResult ViewUser(string id)
         {
-            var model = _adminPanelService.GetAllUsers();
+            var model = _adminPanelService.GetUserDetails(id);
             return View(model);
         }
 
