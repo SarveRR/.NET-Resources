@@ -15,6 +15,7 @@ namespace UsersDirectoryMVC.Web.Controllers
             _adminPanelService = adminPanelService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var model = _adminPanelService.GetAllUsers();
