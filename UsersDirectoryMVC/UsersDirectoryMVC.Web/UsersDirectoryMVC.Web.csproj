@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.8" />
+    <Compile Remove="Views\AdminPanel\**" />
+    <Content Remove="Views\AdminPanel\**" />
+    <EmbeddedResource Remove="Views\AdminPanel\**" />
+    <None Remove="Views\AdminPanel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
@@ -28,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\AdminPanel\" />
+    <None Include="Views\AdminPanel\Index.cshtml" />
   </ItemGroup>
 
 </Project>
