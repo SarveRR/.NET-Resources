@@ -27,4 +27,8 @@
     <ProjectReference Include="..\UsersDirectoryMVC.Infrastructure\UsersDirectoryMVC.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\AdminPanel\" />
+  </ItemGroup>
+
 </Project>
