@@ -21,5 +21,33 @@ namespace UsersDirectoryMVC.Web.Controllers
             var model = _adminPanelService.GetAllUsers();
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult ManageRoles()
+        {
+            var model = _adminPanelService.GetAllUsers();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult ManageRoles(int role)
+        {
+            var model = _adminPanelService.GetAllUsers();
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ViewUser(string id)
+        {
+            var model = _adminPanelService.GetAllUsers();
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            await _adminPanelService.DeleteUser(id);
+            return RedirectToAction("Index");
+        }
     }
 }
