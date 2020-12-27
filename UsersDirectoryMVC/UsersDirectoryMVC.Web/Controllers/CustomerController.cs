@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
 using UsersDirectoryMVC.Application.ViewModels.Customer;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {
+    [Authorize(Roles = "Admin, User")]
     public class CustomerController : Controller
     {
         private readonly ICustomerService _customerService;
@@ -15,14 +17,14 @@ namespace UsersDirectoryMVC.Web.Controllers
         {
             _customerService = customerService;
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
             var model = _customerService.GetAllActiveCustomersForList(3, 1, "");
             return View(model);
         }
-
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(int pageSize, int? pageNumber, string searchString)

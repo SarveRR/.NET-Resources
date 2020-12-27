@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
 using UsersDirectoryMVC.Application.ViewModels.Employer;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {
+    [Authorize(Roles = "Admin, User")]
     public class EmployerController : Controller
     {
         private readonly IEmployerService _employerService;
@@ -16,13 +18,14 @@ namespace UsersDirectoryMVC.Web.Controllers
         {
             _employerService = employerService;
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
             var model = _employerService.GetAllActiveEmployersForList(3, 1, "");
             return View(model);
         }
-
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(int pageSize, int? pageNumber, string searchString)

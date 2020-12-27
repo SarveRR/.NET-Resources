@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
 using UsersDirectoryMVC.Application.ViewModels.AppUser;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {
+    [Authorize(Roles = "Admin, User")]
     public class AppUserController : Controller
     {
         private readonly IAppUserService _appUserService;
@@ -15,13 +17,14 @@ namespace UsersDirectoryMVC.Web.Controllers
         {
             _appUserService = appUserService;
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
             var model = _appUserService.GetAllActiveAppUsersForList(3, 1, "");
             return View(model);
         }
-
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(int pageSize, int? pageNumber, string searchString)

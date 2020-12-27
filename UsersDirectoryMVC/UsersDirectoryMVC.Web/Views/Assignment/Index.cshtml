@@ -5,34 +5,36 @@
 }
 
 <h1>Index</h1>
-
-<p>
-    <a asp-action="AddAssignment">Create New</a>
-</p>
-<form asp-action="Index" asp-controller="Assignment" method="post">
-    <div class="row">
-        <input type="text" asp-for="SearchString" name="searchString" id="searchString" />
-        <input type="submit" value="search" />
-    </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Id
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Description
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Assignments)
-                {
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+    <p>
+        <a asp-action="AddAssignment">Create New</a>
+    </p>
+}
+    <form asp-action="Index" asp-controller="Assignment" method="post">
+        <div class="row">
+            <input type="text" asp-for="SearchString" name="searchString" id="searchString" />
+            <input type="submit" value="search" />
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Assignments)
+                    {
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Id)
@@ -43,46 +45,48 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
+                        @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                        {
+                            <td>
+                                @Html.ActionLink("Edit", "EditAssignment", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "ViewAssignment", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "DeleteAssignment", new { id = item.Id })
+                            </td>
+                        }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <table>
+                <tr>
+                    @for (int i = 1; i <= Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
+                    {
                         <td>
-                            @Html.ActionLink("Edit", "EditAssignment", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "ViewAssignment", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "DeleteAssignment", new { id = item.Id })
+                            @if (i != Model.CurrentPage)
+                            {
+                                <a href="javascript:PagerClick(@i)">@i</a>
+                            }
+                            else
+                            {
+                                <span>@i</span>
+                            }
                         </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <table>
-            <tr>
-                @for (int i = 1; i <= Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
-                {
-                    <td>
-                        @if (i != Model.CurrentPage)
-                        {
-                            <a href="javascript:PagerClick(@i)">@i</a>
-                        }
-                        else
-                        {
-                            <span>@i</span>
-                        }
-                    </td>
-                }
-            </tr>
-        </table>
-        <input type="hidden" name="pageNumber" id="pageNumber" />
-        <input type="hidden" name="pageSize" id="pageSize" value="3" />
-    </div>
-</form>
+                    }
+                </tr>
+            </table>
+            <input type="hidden" name="pageNumber" id="pageNumber" />
+            <input type="hidden" name="pageSize" id="pageSize" value="3" />
+        </div>
+    </form>
 
-@section Scripts
+    @section Scripts
 {
-    <script type="text/javascript">
-        function PagerClick(index)
-        {
-            document.getElementById("pageNumber").value = index;
-            document.forms[0].submit();
-        }
-    </script>
-}
+        <script type="text/javascript">
+            function PagerClick(index) {
+                document.getElementById("pageNumber").value = index;
+                document.forms[0].submit();
+            }
+        </script>
+    }

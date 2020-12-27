@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
 using UsersDirectoryMVC.Application.ViewModels.AdminPanel;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminPanelController : Controller
     {
         private readonly IAdminPanelService _adminPanelService;
@@ -31,6 +33,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageRoles(UserDetailVm user)
         {
             await _adminPanelService.ChangeUserRolesAsync(user.Id, user.UserRoles);

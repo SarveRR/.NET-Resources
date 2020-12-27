@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
 using UsersDirectoryMVC.Application.ViewModels.Assignment;
 
 namespace UsersDirectoryMVC.Web.Controllers
 {
+    [Authorize(Roles = "Admin, User")]
     public class AssignmentController : Controller
     {
         private readonly IAssignmentService _assignmentService;
@@ -16,14 +18,14 @@ namespace UsersDirectoryMVC.Web.Controllers
         {
             _assignmentService = assignmentService;
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
             var model = _assignmentService.GetAllActiveAssignmentsForList(3, 1, "");
             return View(model);
         }
-
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(int pageSize, int? pageNumber, string searchString)
