@@ -71,5 +71,11 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             _context.Entry(appUser).Property("City").IsModified = true;
             _context.SaveChanges();
         }
+
+        public string GetAppUserPositionName(int id)
+        {
+            var appUserPositionName = _context.Positions.FirstOrDefault(a => a.Id == id).Name.ToString();
+            return appUserPositionName;
+        }
     }
 }

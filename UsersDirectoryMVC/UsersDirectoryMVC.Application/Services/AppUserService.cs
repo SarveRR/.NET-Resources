@@ -53,8 +53,16 @@ namespace UsersDirectoryMVC.Application.Services
         {
             var appUser = _appUserRepository.GetAppUser(id);
             var appUserVm = _mapper.Map<AppUserDetailsVm>(appUser);
+            appUserVm.Position = GetAppUserPositionName(appUser.PositionId);
 
             return appUserVm;
+        }
+
+        public string GetAppUserPositionName(int id)
+        {
+            var appUserPositionName = _appUserRepository.GetAppUserPositionName(id);
+
+            return appUserPositionName;
         }
 
         public NewAppUserVm GetAppUserForEdit(int id)

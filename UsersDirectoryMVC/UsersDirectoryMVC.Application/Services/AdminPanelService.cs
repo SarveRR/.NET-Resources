@@ -23,7 +23,7 @@ namespace UsersDirectoryMVC.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<IdentityResult> ChangeUserRolesAsync(string idUser, IEnumerable<string> role)
+        public async Task<IdentityResult> ChangeUserRolesAsync(string idUser, IEnumerable<string> roles)
         {
             var user = await _userManager.FindByIdAsync(idUser);
             if (user == null)
@@ -31,13 +31,13 @@ namespace UsersDirectoryMVC.Application.Services
                 return null;
             }
             var userRoles = await _userManager.GetRolesAsync(user);
-            if (role.ToList().Count > userRoles.Count)
+            if (roles.ToList().Count > userRoles.Count)
             {
-                return await AddRolesToUserAsync(user, role);
+                return await AddRolesToUserAsync(user, roles);
             }
             else
             {
-                return await RemoveRolesFromUserAsync(user, role);
+                return await RemoveRolesFromUserAsync(user, roles);
             }
         }
 
@@ -93,14 +93,14 @@ namespace UsersDirectoryMVC.Application.Services
             return userVm;
         }
 
-        public void RemoveRoleFromUser(string id, string role)
+        public void RemoveRoleFromUser(string id, string roles)
         {
             var user = _userManager.FindByIdAsync(id).Result;
             if (user == null)
             {
                 return;
             }
-            _userManager.RemoveFromRoleAsync(user, role);
+            _userManager.RemoveFromRoleAsync(user, roles);
         }
 
         private async Task<IdentityResult> RemoveRolesFromUserAsync(IdentityUser user, IEnumerable<string> roles)
