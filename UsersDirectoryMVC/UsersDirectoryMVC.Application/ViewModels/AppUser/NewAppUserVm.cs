@@ -17,8 +17,6 @@ namespace UsersDirectoryMVC.Application.ViewModels.AppUser
         public int PositionId { get; set; }
         public string Position { get; set; }
 
-        //public ICollection<Position> Positions { get; set; }
-
         public List<Position> Positions { get; set; }
 
         public void Mapping(Profile profile)

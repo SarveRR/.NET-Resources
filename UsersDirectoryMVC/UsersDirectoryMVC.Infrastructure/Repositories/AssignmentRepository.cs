@@ -52,5 +52,18 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             _context.Entry(assignment).Property("Description").IsModified = true;
             _context.SaveChanges();
         }
+
+        public List<AssignmentTag> GetAllTagsForAssignment(int id)
+        {
+            var tagsForAssignment = _context.AssignmentTag.Where(t => t.AssignmentId == id).ToList();
+            return tagsForAssignment;
+        }
+
+        public Tag GetTag(int tagId)
+        {
+            var tag = _context.Tags.FirstOrDefault(t => t.Id == tagId);
+            return tag;
+        }
     }
 }
+ 

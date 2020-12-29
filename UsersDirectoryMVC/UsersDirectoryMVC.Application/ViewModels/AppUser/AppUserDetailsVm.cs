@@ -15,7 +15,6 @@ namespace UsersDirectoryMVC.Application.ViewModels.AppUser
         public string City { get; set; }
         public int PositionId { get; set; }
         public string Position { get; set; }
-        public int MyProperty { get; set; }
 
         public void Mapping(Profile profile)
         {

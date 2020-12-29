@@ -55,7 +55,29 @@ namespace UsersDirectoryMVC.Application.Services
             var assignment = _assignmentRepository.GetAssignment(id);
             var assignmentVm = _mapper.Map<AssignmentDetailsVm>(assignment);
 
+            var tags = GetAllAssignmentTags(id);
+            assignmentVm.Tags = new List<TagsVm>();
+
+            foreach (var item in tags)
+            {
+                var assignmentTagVm = _mapper.Map<AssignmentTagVm>(item);
+                var tagForList = _assignmentRepository.GetTag(assignmentTagVm.TagId);
+                var tagForListVm = _mapper.Map<TagsVm>(tagForList);
+
+                var add = new TagsVm
+                {
+                    Id = tagForListVm.Id,
+                    Name = tagForListVm.Name
+                };
+                assignmentVm.Tags.Add(add);
+            }
             return assignmentVm;
+        }
+
+        private List<AssignmentTag> GetAllAssignmentTags(int id)
+        {
+            var tags = _assignmentRepository.GetAllTagsForAssignment(id);
+            return tags;
         }
 
         public NewAssignmentVm GetAssignmentForEdit(int id)

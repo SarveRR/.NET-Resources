@@ -17,5 +17,9 @@ namespace UsersDirectoryMVC.Domain.Interfaces
         IQueryable<Assignment> GetAllActiveAssignments();
 
         void UpdateAssignment(Assignment assignment);
+
+        List<AssignmentTag> GetAllTagsForAssignment(int id);
+
+        Tag GetTag(int tagId);
     }
 }
