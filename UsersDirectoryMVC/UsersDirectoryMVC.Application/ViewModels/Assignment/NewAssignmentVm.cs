@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UsersDirectoryMVC.Application.Mapping;
+using UsersDirectoryMVC.Domain.Model;
 
 namespace UsersDirectoryMVC.Application.ViewModels.Assignment
 {
@@ -11,7 +12,8 @@ namespace UsersDirectoryMVC.Application.ViewModels.Assignment
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public List<Tag> Tags { get; set; }
+        public List<int> TagsId { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -25,7 +27,6 @@ namespace UsersDirectoryMVC.Application.ViewModels.Assignment
         {
             RuleFor(x => x.Id).NotNull();
             RuleFor(x => x.Name).MaximumLength(255);
-            RuleFor(x => x.Description).MaximumLength(255);
         }
     }
 }

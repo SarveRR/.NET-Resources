@@ -13,5 +13,6 @@ namespace UsersDirectoryMVC.Application.Interfaces
         NewAssignmentVm GetAssignmentForEdit(int id);
         void UpdateAssignment(NewAssignmentVm model);
         void DeleteAssignment(int id);
+        NewAssignmentVm PrepareNewAssignmentVm();
     }
 }

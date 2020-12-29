@@ -49,7 +49,6 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         {
             _context.Attach(assignment);
             _context.Entry(assignment).Property("Name").IsModified = true;
-            _context.Entry(assignment).Property("Description").IsModified = true;
             _context.SaveChanges();
         }
 
@@ -63,6 +62,26 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         {
             var tag = _context.Tags.FirstOrDefault(t => t.Id == tagId);
             return tag;
+        }
+
+        public IQueryable<Tag> GetAllTags()
+        {
+            var tags = _context.Tags;
+            return tags;
+        }
+
+        public void DeleteTags(int id)
+        {
+            var tagsToRemove = _context.AssignmentTag.Where(r => r.AssignmentId == id).ToList();
+
+            _context.AssignmentTag.RemoveRange(tagsToRemove);
+            _context.SaveChanges();
+        }
+
+        public void AddNewTags(AssignmentTag assignmentTag)
+        {
+            _context.AssignmentTag.Add(assignmentTag);
+            _context.SaveChanges();
         }
     }
 }

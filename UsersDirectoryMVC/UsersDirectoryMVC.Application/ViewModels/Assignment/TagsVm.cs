@@ -13,7 +13,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Assignment
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<UsersDirectoryMVC.Domain.Model.Tag, TagsVm>();
+            profile.CreateMap<UsersDirectoryMVC.Domain.Model.Tag, TagsVm>().ReverseMap();
         }
     }
 }

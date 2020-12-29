@@ -21,5 +21,9 @@ namespace UsersDirectoryMVC.Domain.Interfaces
         List<AssignmentTag> GetAllTagsForAssignment(int id);
 
         Tag GetTag(int tagId);
+
+        IQueryable<Tag> GetAllTags();
+        void DeleteTags(int id);
+        void AddNewTags(AssignmentTag assignmentTags);
     }
 }

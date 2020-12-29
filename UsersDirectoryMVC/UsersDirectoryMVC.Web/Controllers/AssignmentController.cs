@@ -45,7 +45,8 @@ namespace UsersDirectoryMVC.Web.Controllers
         [HttpGet]
         public IActionResult AddAssignment()
         {
-            return View(new NewAssignmentVm());
+            var model = new NewAssignmentVm();
+            return View(model);
         }
 
         [HttpPost]
