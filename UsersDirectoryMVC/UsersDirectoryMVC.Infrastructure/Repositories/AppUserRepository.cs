@@ -27,7 +27,6 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
 
         public int AddAppUser(AppUser appUser)
         {
-            appUser.PositionId = 1;
             _context.AppUsers.Add(appUser);
             _context.SaveChanges();
             return appUser.Id;
@@ -57,18 +56,13 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return appUsers;
         }
 
-        public IQueryable<Position> GetAllPositions()
-        {
-            var positions = _context.Positions;
-            return positions;
-        }
-
         public void UpdateAppUser(AppUser appUser)
         {
             _context.Attach(appUser);
             _context.Entry(appUser).Property("FirstName").IsModified = true;
             _context.Entry(appUser).Property("LastName").IsModified = true;
             _context.Entry(appUser).Property("City").IsModified = true;
+            _context.Entry(appUser).Property("PositionId").IsModified = true;
             _context.SaveChanges();
         }
 
@@ -76,6 +70,12 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         {
             var appUserPositionName = _context.Positions.FirstOrDefault(a => a.Id == id).Name.ToString();
             return appUserPositionName;
+        }
+
+        public IQueryable<Position> GetAllPositions()
+        {
+            var positions = _context.Positions;
+            return positions;
         }
     }
 }

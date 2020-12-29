@@ -69,6 +69,21 @@ namespace UsersDirectoryMVC.Application.Services
         {
             var appUser = _appUserRepository.GetAppUser(id);
             var appUserVm = _mapper.Map<NewAppUserVm>(appUser);
+
+            var model = _appUserRepository.GetAllPositions();
+
+            appUserVm.Positions = new List<Position>();
+
+            foreach (var position in model)
+            {
+                var add = new Position
+                {
+                    Id = position.Id,
+                    Name = position.Name
+                };
+                appUserVm.Positions.Add(add);
+            }
+
             return appUserVm;
         }
 
@@ -76,6 +91,27 @@ namespace UsersDirectoryMVC.Application.Services
         {
             var appUser = _mapper.Map<AppUser>(model);
             _appUserRepository.UpdateAppUser(appUser);
+        }
+
+        public NewAppUserVm PrepareNewAppUserVm()
+        {
+            var model = _appUserRepository.GetAllPositions();
+
+            var completeModel = new NewAppUserVm();
+
+            completeModel.Positions = new List<Position>();
+
+            foreach (var position in model)
+            {
+                var add = new Position
+                {
+                    Id = position.Id,
+                    Name = position.Name
+                };
+                completeModel.Positions.Add(add);
+            }
+
+           return completeModel;
         }
     }
 }

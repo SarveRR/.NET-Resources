@@ -17,6 +17,7 @@ namespace UsersDirectoryMVC.Web.Controllers
         {
             _appUserService = appUserService;
         }
+
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
@@ -24,6 +25,7 @@ namespace UsersDirectoryMVC.Web.Controllers
             var model = _appUserService.GetAllActiveAppUsersForList(3, 1, "");
             return View(model);
         }
+
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -44,7 +46,8 @@ namespace UsersDirectoryMVC.Web.Controllers
         [HttpGet]
         public IActionResult AddAppUser()
         {
-            return View(new NewAppUserVm());
+            var model = _appUserService.PrepareNewAppUserVm();
+            return View(model);
         }
 
         [HttpPost]

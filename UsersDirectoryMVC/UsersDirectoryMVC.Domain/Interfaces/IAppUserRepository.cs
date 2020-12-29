@@ -21,6 +21,7 @@ namespace UsersDirectoryMVC.Domain.Interfaces
         IQueryable<Position> GetAllPositions();
 
         void UpdateAppUser(AppUser appUser);
+
         string GetAppUserPositionName(int id);
     }
 }

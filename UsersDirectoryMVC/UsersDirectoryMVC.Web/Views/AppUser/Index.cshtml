@@ -5,11 +5,11 @@
 }
 
 <h1>Index</h1>
-@if(User.IsInRole("Admin") || User.IsInRole("User"))
-{ 
-<p>
-    <a asp-action="AddAppUser">Create New</a>
-</p>
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+    <p>
+        <a asp-action="AddAppUser">Create New</a>
+    </p>
 }
 <form asp-action="Index" asp-controller="AppUser" method="post">
     <div class="row">
@@ -35,25 +35,25 @@
             <tbody>
                 @foreach (var item in Model.AppUsers)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    @if (User.IsInRole("Admin") || User.IsInRole("User"))
-                    {
-                    <td>
-                        @Html.ActionLink("Edit", "EditAppUser", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "ViewAppUser", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "DeleteAppUser", new { id = item.Id })
-                    </td>
-                    }
-                </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                        {
+                            <td>
+                                @Html.ActionLink("Edit", "EditAppUser", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "ViewAppUser", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "DeleteAppUser", new { id = item.Id })
+                            </td>
+                        }
+                    </tr>
                 }
             </tbody>
         </table>
@@ -81,13 +81,28 @@
     </div>
 </form>
 
-@section Scripts
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
 {
-    <script type="text/javascript">
-        function PagerClick(index)
-        {
-            document.getElementById("pageNumber").value = index;
-            document.forms[0].submit();
-        }
-    </script>
+    @section Scripts
+    {
+        <script type="text/javascript">
+            function PagerClick(index) {
+                document.getElementById("pageNumber").value = index;
+                document.forms[1].submit();
+            }
+        </script>
+    }
 }
+else
+{
+    @section Scripts
+    {
+        <script type="text/javascript">
+            function PagerClick(index) {
+                document.getElementById("pageNumber").value = index;
+                document.forms[0].submit();
+            }
+        </script>
+    }
+}
+

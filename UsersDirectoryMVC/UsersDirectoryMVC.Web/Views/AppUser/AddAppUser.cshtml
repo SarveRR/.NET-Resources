@@ -12,10 +12,10 @@
     <div class="col-md-4">
         <form asp-action="AddAppUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" class="form-control" />
+            <input type="hidden" asp-for="Id" class="form-control" />
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
-                <label asp-for="FirstName" class="form-control" />
+                <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,8 +29,16 @@
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label>Choose a position:</label><br />
+                @foreach (var item in Model.Positions)
+                {
+                    <input asp-for="PositionId" type="radio" value="@item.Id" /> @item.Name
+                    <br />
+                }
             </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
         </form>
     </div>
 </div>

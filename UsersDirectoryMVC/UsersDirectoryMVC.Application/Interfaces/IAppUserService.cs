@@ -13,5 +13,6 @@ namespace UsersDirectoryMVC.Application.Interfaces
         NewAppUserVm GetAppUserForEdit(int id);
         void UpdateAppUser(NewAppUserVm model);
         void DeleteAppUser(int id);
+        NewAppUserVm PrepareNewAppUserVm();
     }
 }
