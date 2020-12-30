@@ -12,6 +12,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
         public int Id { get; set; }
         public string Name { get; set; }
         public string NIP { get; set; }
+        public CustomerContactInfoVm customerContactInfos { get; set; }
 
         public void Mapping(Profile profile)
         {

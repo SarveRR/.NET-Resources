@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="EditCustomer">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" class="form-control" />
+            <input type="hidden" asp-for="Id" class="form-control" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -22,6 +22,16 @@
                 <label asp-for="NIP" class="control-label"></label>
                 <input asp-for="NIP" class="form-control" />
                 <span asp-validation-for="NIP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="customerContactInfos.FirstName" class="control-label"></label>
+                <input asp-for="customerContactInfos.FirstName" class="form-control" />
+                <span asp-validation-for="customerContactInfos.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="customerContactInfos.LastName" class="control-label"></label>
+                <input asp-for="customerContactInfos.LastName" class="form-control" />
+                <span asp-validation-for="customerContactInfos.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
