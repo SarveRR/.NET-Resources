@@ -58,6 +58,9 @@ namespace UsersDirectoryMVC.Application.Services
             customerVm.PhoneNumbers = new List<ContactDetailListVm>();
             customerVm.Emails = new List<ContactDetailListVm>();
 
+            var custInfo = _customerRepository.GetCustomerContactInfos(customerId);
+            customerVm.customerContactInfos = _mapper.Map<CustomerContactInfoVm>(custInfo);
+
             //foreach (var address in customer.Addresses)
             //{
             //    var add = new AddressForListVm

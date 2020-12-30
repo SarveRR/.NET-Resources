@@ -53,5 +53,11 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             _context.Entry(customer).Property("NIP").IsModified = true;
             _context.SaveChanges();
         }
+
+        public CustomerContactInformation GetCustomerContactInfos(int customerId)
+        {
+            var custInfos = _context.CustomerContactInformations.FirstOrDefault(c => c.CustomerRef == customerId);
+            return custInfos;
+        }
     }
 }

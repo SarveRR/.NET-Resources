@@ -12,7 +12,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
         public string Name { get; set; }
         public string NIP { get; set; }
         public string CEOFullName { get; set; }
-        public string FirstLineOfContactInformation { get; set; }
+        public CustomerContactInfoVm customerContactInfos { get; set; }
         public List<AddressForListVm> Addresses { get; set; }
         public List<ContactDetailListVm> Emails { get; set; }
         public List<ContactDetailListVm> PhoneNumbers { get; set; }
@@ -21,8 +21,6 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
         {
             profile.CreateMap<UsersDirectoryMVC.Domain.Model.Customer, CustomerDetailsVm>()
                 .ForMember(s => s.CEOFullName, opt => opt.MapFrom(d => d.CEOFisrtName + " " + d.CEOLastName))
-                .ForMember(s => s.FirstLineOfContactInformation, opt => opt.MapFrom(d => d.CustomerContactInformation.FirstName
-                + " " + d.CustomerContactInformation.LastName))
                 .ForMember(s => s.Addresses, opt => opt.Ignore())
                 .ForMember(s => s.Emails, opt => opt.Ignore())
                 .ForMember(s => s.PhoneNumbers, opt => opt.Ignore());
