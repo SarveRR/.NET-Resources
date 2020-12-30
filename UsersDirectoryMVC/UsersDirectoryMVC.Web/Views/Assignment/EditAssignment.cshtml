@@ -22,9 +22,7 @@
                 <label>Choose tags:</label><br />
                 @foreach (var item in Model.Tags)
                 {
-                    <input type="checkbox"
-                           name="TagsId"
-                           value="@item.Id"
+                    <input type="checkbox" name="TagsId" value="@item.Id"
                            @if (Model.TagsId.Contains(item.Id)) { <text> checked </text> } /> @item.Name
                         <br />
                     }
