@@ -29,6 +29,7 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         public int AddCustomer(Customer customer)
         {
             customer.IsActive = true;
+
             _context.Customers.Add(customer);
             _context.SaveChanges();
             return customer.Id;
@@ -63,12 +64,20 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
         public void UpdateCustomerContactInfo(CustomerContactInformation customerInfos)
         {
             var model = _context.CustomerContactInformations.FirstOrDefault(m => m.CustomerRef == customerInfos.CustomerRef);
-            model.FirstName = customerInfos.FirstName;
-            model.LastName = customerInfos.LastName;
-            _context.Attach(model);
-            _context.Entry(model).Property("FirstName").IsModified = true;
-            _context.Entry(model).Property("LastName").IsModified = true;
-
+            if(model == null)
+            {
+                _context.Attach(customerInfos);
+                _context.Entry(customerInfos).Property("FirstName").IsModified = true;
+                _context.Entry(customerInfos).Property("LastName").IsModified = true;
+            }
+            else
+            {
+                model.FirstName = customerInfos.FirstName;
+                model.LastName = customerInfos.LastName;
+                _context.Attach(model);
+                _context.Entry(model).Property("FirstName").IsModified = true;
+                _context.Entry(model).Property("LastName").IsModified = true;
+            }
             _context.SaveChanges();
         }
     }
