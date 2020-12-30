@@ -11,6 +11,7 @@ namespace UsersDirectoryMVC.Application.ViewModels.Customer
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int CustomerRef { get; set; }
         public void Mapping(Profile profile)
         {
             profile.CreateMap<UsersDirectoryMVC.Domain.Model.CustomerContactInformation, CustomerContactInfoVm>().ReverseMap();

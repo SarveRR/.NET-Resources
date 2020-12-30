@@ -78,12 +78,17 @@ namespace UsersDirectoryMVC.Application.Services
         {
             var customer = _customerRepository.GetCustomer(id);
             var customerVm = _mapper.Map<NewCustomerVm>(customer);
+            var custInfo = _customerRepository.GetCustomerContactInfos(id);
+            customerVm.customerContactInfos = _mapper.Map<CustomerContactInfoVm>(custInfo);
             return customerVm;
         }
 
         public void UpdateCustomer(NewCustomerVm model)
         {
+            model.customerContactInfos.CustomerRef = model.Id;
+            var customerInfos = _mapper.Map<CustomerContactInformation>(model.customerContactInfos);
             var customer = _mapper.Map<Customer>(model);
+            _customerRepository.UpdateCustomerContactInfo(customerInfos);
             _customerRepository.UpdateCustomer(customer);
         }
     }

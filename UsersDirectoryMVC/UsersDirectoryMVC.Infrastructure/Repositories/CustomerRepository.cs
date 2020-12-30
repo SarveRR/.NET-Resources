@@ -59,5 +59,17 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             var custInfos = _context.CustomerContactInformations.FirstOrDefault(c => c.CustomerRef == customerId);
             return custInfos;
         }
+
+        public void UpdateCustomerContactInfo(CustomerContactInformation customerInfos)
+        {
+            var model = _context.CustomerContactInformations.FirstOrDefault(m => m.CustomerRef == customerInfos.CustomerRef);
+            model.FirstName = customerInfos.FirstName;
+            model.LastName = customerInfos.LastName;
+            _context.Attach(model);
+            _context.Entry(model).Property("FirstName").IsModified = true;
+            _context.Entry(model).Property("LastName").IsModified = true;
+
+            _context.SaveChanges();
+        }
     }
 }
