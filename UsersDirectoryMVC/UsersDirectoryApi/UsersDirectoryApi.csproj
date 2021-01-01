@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UsersDirectoryMVC.Application\UsersDirectoryMVC.Application.csproj" />
+    <ProjectReference Include="..\UsersDirectoryMVC.Infrastructure\UsersDirectoryMVC.Infrastructure.csproj" />
   </ItemGroup>
 
 

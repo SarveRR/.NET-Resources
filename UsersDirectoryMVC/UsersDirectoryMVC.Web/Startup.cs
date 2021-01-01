@@ -40,8 +40,10 @@ namespace UsersDirectoryMVC.Web
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<Context>();
+
             services.AddApplication();
             services.AddInfrastructure();
+
             services.AddControllersWithViews()
                 .AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
