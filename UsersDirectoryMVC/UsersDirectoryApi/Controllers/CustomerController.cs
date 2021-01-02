@@ -68,7 +68,7 @@ namespace UsersDirectoryApi.Controllers
         }
 
         [HttpPost("AddCustomer")]
-        public ActionResult AddCustomer(NewCustomerVm model)
+        public ActionResult AddCustomer([FromBody] NewCustomerVm model)
         {
             var id = _customerService.AddCustomer(model);
             return Ok(RedirectToAction("Index"));
@@ -86,7 +86,7 @@ namespace UsersDirectoryApi.Controllers
         }
 
         [HttpPost("EditCustomer")]
-        public ActionResult EditCustomer(NewCustomerVm model)
+        public ActionResult EditCustomer([FromBody] NewCustomerVm model)
         {
             _customerService.UpdateCustomer(model);
             return Ok(RedirectToAction("Index"));
