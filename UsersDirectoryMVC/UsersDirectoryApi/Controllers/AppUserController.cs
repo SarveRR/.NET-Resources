@@ -36,7 +36,7 @@ namespace UsersDirectoryApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("Index")]
-        public ActionResult<SearchInListVm> Index([FromBody] SearchInListVm searchVm)
+        public ActionResult<ListAppUserForListVm> Index([FromBody] SearchInListVm searchVm)
         {
             var pageNumber = searchVm.pageNumber;
             var searchString = searchVm.searchString;
@@ -72,7 +72,7 @@ namespace UsersDirectoryApi.Controllers
         }
 
         [HttpPost("AddAppUser")]
-        public ActionResult<NewAppUserVm> AddAppUser([FromBody] NewAppUserVm appUser)
+        public ActionResult AddAppUser([FromBody] NewAppUserVm appUser)
         {
             var id = _appUserService.AddAppUser(appUser);
             return Ok(RedirectToAction("Index"));
@@ -91,17 +91,17 @@ namespace UsersDirectoryApi.Controllers
         }
 
         [HttpPost("EditAppUser")]
-        public ActionResult<NewAppUserVm> EditAppUser([FromBody] NewAppUserVm model)
+        public ActionResult EditAppUser([FromBody] NewAppUserVm model)
         {
             _appUserService.UpdateAppUser(model);
-            return RedirectToAction("Index");
+            return Ok(RedirectToAction("Index"));
         }
 
         [HttpGet("DeleteAppUser/{id}")]
         public ActionResult DeleteAppUser(int id)
         {
             _appUserService.DeleteAppUser(id);
-            return RedirectToAction("Index");
+            return Ok(RedirectToAction("Index"));
         }
 
         [HttpGet("ViewAppUser/{id}")]
