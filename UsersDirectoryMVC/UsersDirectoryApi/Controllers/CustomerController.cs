@@ -71,7 +71,7 @@ namespace UsersDirectoryApi.Controllers
         public ActionResult AddCustomer([FromBody] NewCustomerVm model)
         {
             var id = _customerService.AddCustomer(model);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("EditCustomer/{id}")]
@@ -89,14 +89,14 @@ namespace UsersDirectoryApi.Controllers
         public ActionResult EditCustomer([FromBody] NewCustomerVm model)
         {
             _customerService.UpdateCustomer(model);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("DeleteCustomer/{id}")]
         public ActionResult DeleteCustomer(int id)
         {
             _customerService.DeleteCustomer(id);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("ViewCustomer/{id}")]

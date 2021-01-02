@@ -75,7 +75,7 @@ namespace UsersDirectoryApi.Controllers
         public ActionResult AddAppUser([FromBody] NewAppUserVm appUser)
         {
             var id = _appUserService.AddAppUser(appUser);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("EditAppUser/{id}")]
@@ -94,14 +94,14 @@ namespace UsersDirectoryApi.Controllers
         public ActionResult EditAppUser([FromBody] NewAppUserVm model)
         {
             _appUserService.UpdateAppUser(model);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("DeleteAppUser/{id}")]
         public ActionResult DeleteAppUser(int id)
         {
             _appUserService.DeleteAppUser(id);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("ViewAppUser/{id}")]

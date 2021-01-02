@@ -74,7 +74,7 @@ namespace UsersDirectoryApi.Controllers
         public ActionResult AddAssignment([FromBody] NewAssignmentVm model)
         {
             var id = _assignmentService.AddAssignment(model);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("EditAssignment/{id}")]
@@ -92,14 +92,14 @@ namespace UsersDirectoryApi.Controllers
         public ActionResult EditAssignment([FromBody] NewAssignmentVm model)
         {
             _assignmentService.UpdateAssignment(model);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("DeleteAssignment/{id}")]
         public ActionResult DeleteAssignment(int id)
         {
             _assignmentService.DeleteAssignment(id);
-            return Ok(RedirectToAction("Index"));
+            return RedirectToAction("Index");
         }
 
         [HttpGet("ViewAssignment/{id}")]
