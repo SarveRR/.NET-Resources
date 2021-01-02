@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UsersDirectoryMVC.Application.Interfaces;
+using UsersDirectoryMVC.Application.ViewModels;
 using UsersDirectoryMVC.Application.ViewModels.AppUser;
 
 namespace UsersDirectoryApi.Controllers
@@ -21,19 +22,25 @@ namespace UsersDirectoryApi.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet]
-        public IActionResult Index()
+        [HttpGet("Index")]
+        public ActionResult<ListAppUserForListVm> Index()
         {
             var model = _appUserService.GetAllActiveAppUsersForList(3, 1, "");
-            return Ok();
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return Ok(model);
         }
 
         [AllowAnonymous]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Index(int pageSize, int? pageNumber, string searchString)
+        [HttpPost("Index")]
+        public ActionResult<SearchInListVm> Index([FromBody] SearchInListVm searchVm)
         {
-            if (!pageNumber.HasValue)
+            var pageNumber = searchVm.pageNumber;
+            var searchString = searchVm.searchString;
+
+            if (pageNumber == 0)
             {
                 pageNumber = 1;
             }
@@ -41,12 +48,18 @@ namespace UsersDirectoryApi.Controllers
             {
                 searchString = String.Empty;
             }
-            var model = _appUserService.GetAllActiveAppUsersForList(pageSize, pageNumber.Value, searchString);
-            return Ok();
+            
+            var model = _appUserService.GetAllActiveAppUsersForList(searchVm.pageSize, pageNumber, searchString);
+            
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return Ok(model);
         }
 
-        [HttpGet("addAppUser")]
-        public ActionResult<NewAppUserVm> AddAppUser()
+        [HttpGet("AddAppUser")]
+        public ActionResult<NewAppUserVm> AddAppUser(int id)
         {
             var model = _appUserService.PrepareNewAppUserVm();
 
@@ -57,16 +70,15 @@ namespace UsersDirectoryApi.Controllers
             return Ok(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult AddAppUser(NewAppUserVm appUser)
+        [HttpPost("AddAppUser")]
+        public ActionResult<NewAppUserVm> AddAppUser([FromBody] NewAppUserVm appUser)
         {
             var id = _appUserService.AddAppUser(appUser);
-            return RedirectToAction("Index");
+            return Ok(RedirectToAction("Index"));
         }
 
-        [HttpGet("editappuser/{id}")]
-        public ActionResult<NewAppUserVm> Get(int id)
+        [HttpGet("EditAppUser/{id}")]
+        public ActionResult<NewAppUserVm> EditAppUser(int id)
         {
             var appUser = _appUserService.GetAppUserForEdit(id);
 
@@ -77,26 +89,29 @@ namespace UsersDirectoryApi.Controllers
             return Ok(appUser);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EditAppUser(NewAppUserVm model)
+        [HttpPost("EditAppUser")]
+        public ActionResult<NewAppUserVm> EditAppUser([FromBody] NewAppUserVm model)
         {
             _appUserService.UpdateAppUser(model);
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public IActionResult DeleteAppUser(int id)
+        [HttpGet("DeleteAppUser/{id}")]
+        public ActionResult DeleteAppUser(int id)
         {
             _appUserService.DeleteAppUser(id);
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public IActionResult ViewAppUser(int id)
+        [HttpGet("ViewAppUser/{id}")]
+        public ActionResult<AppUserDetailsVm> ViewAppUser(int id)
         {
-            var appUserModel = _appUserService.GetAppUserDetails(id);
-            return Ok();
+            var model = _appUserService.GetAppUserDetails(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return Ok(model);
         }
     }
 }
