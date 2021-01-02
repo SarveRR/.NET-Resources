@@ -13,6 +13,7 @@ namespace UsersDirectoryApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin, User")]
     public class AppUserController : ControllerBase
     {
         private readonly IAppUserService _appUserService;

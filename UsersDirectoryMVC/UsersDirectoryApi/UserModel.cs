@@ -1,4 +1,6 @@
-﻿namespace UsersDirectoryApi.Controllers
+﻿using System.Collections.Generic;
+
+namespace UsersDirectoryApi.Controllers
 {
     public class UserModel
     {
