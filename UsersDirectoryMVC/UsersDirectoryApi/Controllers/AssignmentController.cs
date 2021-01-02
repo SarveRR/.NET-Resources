@@ -35,7 +35,7 @@ namespace UsersDirectoryApi.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("Index")]
         public ActionResult<ListAssignmentForListVm> Index([FromBody] SearchInListVm searchVm)
         {
             var pageNumber = searchVm.pageNumber;
@@ -70,7 +70,7 @@ namespace UsersDirectoryApi.Controllers
             return Ok(model);
         }
 
-        [HttpPost]
+        [HttpPost("AddAssignment")]
         public ActionResult AddAssignment([FromBody] NewAssignmentVm model)
         {
             var id = _assignmentService.AddAssignment(model);
@@ -88,7 +88,7 @@ namespace UsersDirectoryApi.Controllers
             return Ok(model);
         }
 
-        [HttpPost]
+        [HttpPost("EditAssignment")]
         public ActionResult EditAssignment([FromBody] NewAssignmentVm model)
         {
             _assignmentService.UpdateAssignment(model);
