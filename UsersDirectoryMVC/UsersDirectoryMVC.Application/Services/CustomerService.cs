@@ -61,16 +61,6 @@ namespace UsersDirectoryMVC.Application.Services
             var custInfo = _customerRepository.GetCustomerContactInfos(customerId);
             customerVm.customerContactInfos = _mapper.Map<CustomerContactInfoVm>(custInfo);
 
-            //foreach (var address in customer.Addresses)
-            //{
-            //    var add = new AddressForListVm
-            //    {
-            //        Id = address.Id,
-            //        Country = address.Country,
-            //        City = address.City
-            //    };
-            //    customerVm.Addresses.Add(add);
-            //}
             return customerVm;
         }
 
