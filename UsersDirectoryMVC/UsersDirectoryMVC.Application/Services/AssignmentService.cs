@@ -90,7 +90,7 @@ namespace UsersDirectoryMVC.Application.Services
             return assignmentVm;
         }
 
-        private List<AssignmentTag> GetAllAssignmentTags(int id)
+        public List<AssignmentTag> GetAllAssignmentTags(int id)
         {
             var tags = _assignmentRepository.GetAllTagsForAssignment(id);
             return tags;

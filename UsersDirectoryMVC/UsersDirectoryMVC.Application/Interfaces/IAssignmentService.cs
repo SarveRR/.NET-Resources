@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UsersDirectoryMVC.Application.ViewModels.Assignment;
+using UsersDirectoryMVC.Domain.Model;
 
 namespace UsersDirectoryMVC.Application.Interfaces
 {
@@ -14,5 +15,6 @@ namespace UsersDirectoryMVC.Application.Interfaces
         void UpdateAssignment(NewAssignmentVm model);
         void DeleteAssignment(int id);
         NewAssignmentVm PrepareNewAssignmentVm();
+        List<AssignmentTag> GetAllAssignmentTags(int id);
     }
 }
