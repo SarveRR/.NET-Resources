@@ -25,4 +25,10 @@
     <ProjectReference Include="..\UsersDirectoryMVC.Infrastructure\UsersDirectoryMVC.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\IntegrationTests\" />
+    <Folder Include="Repositories\UnitTests\" />
+    <Folder Include="Services\IntegrationTests\" />
+  </ItemGroup>
+
 </Project>
