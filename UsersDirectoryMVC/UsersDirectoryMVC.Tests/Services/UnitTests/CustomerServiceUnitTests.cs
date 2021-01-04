@@ -16,7 +16,7 @@ using UsersDirectoryMVC.Infrastructure;
 using UsersDirectoryMVC.Infrastructure.Repositories;
 using Xunit;
 
-namespace UsersDirectoryMVC.Tests
+namespace UsersDirectoryMVC.Tests.Services
 {
     public class CustomerServiceUnitTests
     {

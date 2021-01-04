@@ -9,7 +9,7 @@ using UsersDirectoryMVC.Domain.Interfaces;
 using UsersDirectoryMVC.Domain.Model;
 using Xunit;
 
-namespace UsersDirectoryMVC.Tests
+namespace UsersDirectoryMVC.Tests.Services
 {
     public class EmployerServiceUnitTests
     {

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="Moq" Version="4.15.2" />
     <PackageReference Include="xunit" Version="2.4.0" />
@@ -27,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Repositories\IntegrationTests\" />
-    <Folder Include="Repositories\UnitTests\" />
     <Folder Include="Services\IntegrationTests\" />
   </ItemGroup>
 

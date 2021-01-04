@@ -8,12 +8,12 @@ using UsersDirectoryMVC.Domain.Interfaces;
 using UsersDirectoryMVC.Domain.Model;
 using Xunit;
 
-namespace UsersDirectoryMVC.Tests
+namespace UsersDirectoryMVC.Tests.Services
 {
-    public class AppUserServiceUnitTests
+    public class EmployerRepositoryUnitTests
     {
         [Fact]
-        public void CheckAddUserIdAfterAdd()
+        public void CheckEmployerIdAfterAdd()
         {
             //Arrange
             NewAppUserVm appUserToAdd = new NewAppUserVm()
