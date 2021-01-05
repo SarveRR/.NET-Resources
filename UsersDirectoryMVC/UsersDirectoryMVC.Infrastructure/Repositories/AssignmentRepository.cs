@@ -64,9 +64,9 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return tag;
         }
 
-        public IQueryable<Tag> GetAllTags()
+        public List<Tag> GetAllTags()
         {
-            var tags = _context.Tags;
+            var tags = _context.Tags.ToList();
             return tags;
         }
 
@@ -75,6 +75,20 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             var tagsToRemove = _context.AssignmentTag.Where(r => r.AssignmentId == id).ToList();
 
             _context.AssignmentTag.RemoveRange(tagsToRemove);
+            _context.SaveChanges();
+        }
+
+        public void DeleteTag(int id)
+        {
+            var tagToRemove = _context.Tags.FirstOrDefault(r => r.Id == id);
+
+            _context.Tags.Remove(tagToRemove);
+            _context.SaveChanges();
+        }
+
+        public void AddTag(Tag tag)
+        {
+            _context.Tags.Add(tag);
             _context.SaveChanges();
         }
 

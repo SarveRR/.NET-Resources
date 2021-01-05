@@ -22,8 +22,10 @@ namespace UsersDirectoryMVC.Domain.Interfaces
 
         Tag GetTag(int tagId);
 
-        IQueryable<Tag> GetAllTags();
+        List<Tag> GetAllTags();
         void DeleteTags(int id);
         void AddNewTags(AssignmentTag assignmentTags);
+        void DeleteTag(int id);
+        void AddTag(Tag tag);
     }
 }
