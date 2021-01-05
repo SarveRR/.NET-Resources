@@ -23,5 +23,7 @@ namespace UsersDirectoryMVC.Domain.Interfaces
         void UpdateAppUser(AppUser appUser);
 
         string GetAppUserPositionName(int id);
+
+        void AddPosition(Position position);
     }
 }

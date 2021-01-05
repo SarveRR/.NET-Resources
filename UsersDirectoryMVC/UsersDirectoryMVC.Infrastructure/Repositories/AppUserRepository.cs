@@ -44,12 +44,6 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
             return appUser;
         }
 
-        public IQueryable<Tag> GetAllTags()
-        {
-            var tags = _context.Tags;
-            return tags;
-        }
-
         public IQueryable<AppUser> GetAllActiveAppUsers()
         {
             var appUsers = _context.AppUsers;
@@ -68,8 +62,14 @@ namespace UsersDirectoryMVC.Infrastructure.Repositories
 
         public string GetAppUserPositionName(int id)
         {
-            var appUserPositionName = _context.Positions.FirstOrDefault(a => a.Id == id).Name.ToString();
-            return appUserPositionName;
+            var appUserPosition = _context.Positions.FirstOrDefault(a => a.Id == id).Name.ToString();
+            return appUserPosition;
+        }
+
+        public void AddPosition(Position position)
+        {
+            _context.Positions.Add(position);
+            _context.SaveChanges();
         }
 
         public IQueryable<Position> GetAllPositions()
