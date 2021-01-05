@@ -50,7 +50,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckEmployerDetails()
+        public void CheckEmployerDetailsAreEqualLikeModel()
         {
             //Arrange
             Employer employer = new Employer()
@@ -84,7 +84,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckEmployerToEditDetails()
+        public void CheckEmployerToEditDetailsAreEqualLikeModel()
         {
             //Arrange
             Employer employer = new Employer()

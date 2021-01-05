@@ -83,7 +83,7 @@ namespace UsersDirectoryMVC.Tests.Repositories
         }
 
         [Fact]
-        public void GetListOfAddedCustomersAndCheckExist()
+        public void GetListOfAddedCustomersAndCHeckAreEqualLikeModels()
         {
             //Arrange
             Customer customer1 = new Customer()

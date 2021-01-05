@@ -13,7 +13,7 @@ namespace UsersDirectoryMVC.Tests.Services
     public class EmployerRepositoryUnitTests
     {
         [Fact]
-        public void CheckEmployerIdAfterAdd()
+        public void CheckEmployerIdExistAfterAdd()
         {
             //Arrange
             NewAppUserVm appUserToAdd = new NewAppUserVm()
@@ -49,7 +49,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckAppUserDetails()
+        public void CheckAppUserDetailsAreEqualLikeModel()
         {
             //Arrange
             AppUser appuser = new AppUser()
@@ -84,7 +84,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckAppUserPositionName()
+        public void CheckAppUserPositionNameAreEqualLikeVariable()
         {
             //Arrange
             var position = "Junior";
@@ -108,7 +108,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckAppUserToEditDetails()
+        public void CheckAppUserToEditDetailsAreEqualLikeModel()
         {
             //Arrange
             AppUser appuser = new AppUser()

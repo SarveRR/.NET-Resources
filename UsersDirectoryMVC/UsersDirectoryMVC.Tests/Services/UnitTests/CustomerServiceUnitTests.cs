@@ -58,7 +58,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckCustomerToEditDetails()
+        public void CheckCustomerToEditDetailsAreEqualLikeModel()
         {
             //Arrange
             Customer customer = new Customer()
@@ -92,7 +92,7 @@ namespace UsersDirectoryMVC.Tests.Services
         }
 
         [Fact]
-        public void CheckCustomerDetails()
+        public void CheckCustomerDetailsAreEqualLikeModel()
         {
             //Arrange
             Customer customer = new Customer()

@@ -83,7 +83,7 @@ namespace UsersDirectoryMVC.Tests.Repositories
         }
 
         [Fact]
-        public void GetListOfEmployers()
+        public void GetListOfEmployersAndCheckAreEqualLikeModels()
         {
             //Arrange
             Employer employer1 = new Employer()
