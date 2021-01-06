@@ -16,7 +16,7 @@ namespace UsersDirectoryMVC.Application.Services
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
-        public AdminPanelService(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager,  IMapper mapper)
+        public AdminPanelService(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             _userManager = userManager;
             _roleManager = roleManager;

@@ -21,7 +21,7 @@ using Xunit;
 namespace UsersDirectoryMVC.Tests.Services.IntegrationTests
 {
     public class AppUserIntegrationTests
-    { 
+    {
         [Fact]
         public void CheckAppUserIfExistAfterAdd()
         {
@@ -157,7 +157,7 @@ namespace UsersDirectoryMVC.Tests.Services.IntegrationTests
             var options = new DbContextOptionsBuilder<Context>()
               .UseInMemoryDatabase("UsersDirectoryMVC")
               .Options;
-            
+
 
             using (var context = new Context(options))
             {
