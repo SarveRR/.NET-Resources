@@ -71,6 +71,8 @@ namespace UsersDirectoryMVC.Application.Services
             var assignment = _assignmentRepository.GetAssignment(id);
             var assignmentVm = _mapper.Map<AssignmentDetailsVm>(assignment);
 
+            if (assignmentVm == null) return null;
+
             var tags = GetAllAssignmentTags(id);
             assignmentVm.Tags = new List<TagsVm>();
 
