@@ -54,6 +54,9 @@ namespace UsersDirectoryMVC.Application.Services
             var customer = _customerRepository.GetCustomer(customerId);
             var customerVm = _mapper.Map<CustomerDetailsVm>(customer);
 
+            if (customerVm == null) return null;
+
+
             customerVm.Addresses = new List<AddressForListVm>();
             customerVm.PhoneNumbers = new List<ContactDetailListVm>();
             customerVm.Emails = new List<ContactDetailListVm>();
