@@ -21,5 +21,4 @@ The application is designed for small companies or freelancers. It allows you to
 - xUnit
 - Moq
 
-## About
 
